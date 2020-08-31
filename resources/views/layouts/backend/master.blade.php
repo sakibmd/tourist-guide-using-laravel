@@ -9,7 +9,7 @@
  
   <link rel="stylesheet" href="{{asset('backend/app.css')}}">
   <link rel="stylesheet" href="{{asset('assets/admin/css/custom.css')}}">
-  @stack('css')
+  @yield('css')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper" id="app">
@@ -41,7 +41,7 @@
 
 </script>
 
-@stack('js')
+@yield('scripts')
 
 </body>
 </html>

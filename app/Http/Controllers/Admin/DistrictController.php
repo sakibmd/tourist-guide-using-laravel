@@ -102,6 +102,6 @@ class DistrictController extends Controller
     {
          $district->delete();
 
-      return redirect(route('admin.district.index'))->with('success', 'District deleted Successfully');;
+      return redirect(route('admin.district.index'))->with('success', 'District deleted Successfully');
     }
 }

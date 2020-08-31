@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Placetype;
 
 class TypeController extends Controller
 {
@@ -14,7 +15,8 @@ class TypeController extends Controller
      */
     public function index()
     {
-        return view('admin.placeType.index');
+        $types = Placetype::latest()->paginate(8);
+        return view('admin.placeType.index',compact('types'));
     }
 
     /**
@@ -35,7 +37,15 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name' => 'required|unique:placetypes'
+            ]);
+    
+            $types = new Placetype();
+            $types->name = $request->name;
+            $types->save();
+    
+            return redirect(route('admin.type.index'))->with('successMsg', 'PlaceType name inserted successfully');
     }
 
     /**
@@ -55,9 +65,9 @@ class TypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Placetype $type)
     {
-        //
+       return view('admin.placeType.edit',compact('type',$type));
     }
 
     /**
@@ -69,7 +79,16 @@ class TypeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $types=Placetype::find($id);
+        $this->validate($request,[
+            'name' => 'required|unique:placetypes,name,'.$types->id,
+            ]);
+    
+      
+        $types->name = $request->name;
+        $types->save();
+
+         return redirect(route('admin.type.index'))->with('successMsg', 'PlaceType Updated Successfully');
     }
 
     /**
@@ -78,8 +97,10 @@ class TypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Placetype $type)
     {
-        //
+         $type->delete();
+
+      return redirect(route('admin.type.index'))->with('success', 'Placetype deleted Successfully');
     }
 }

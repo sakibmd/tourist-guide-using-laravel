@@ -15,10 +15,10 @@
     					  @endif  
 
                 <div class="card mt-5">
-                    <div class="card-header">
-                      <h3 class="card-title float-left"><strong>Manage District</strong></h3>
+                    <div class="card-header  bg-secondary">
+                      <h3 class="card-title float-left p-0"><strong>Manage District</strong></h3>
                       
-                    <a href="{{route('admin.district.create')}}" class="btn-primary btn-sm float-right c-white">Add New <i class="fa fa-plus"></i></a>
+                    <a href="{{route('admin.district.create')}}" class="btn btn-dark btn-md float-right c-white">Add New <i class="fa fa-plus"></i></a>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
