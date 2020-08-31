@@ -26,8 +26,11 @@
 					        </div>
 					      
 
-					        <button type="submit" class="btn btn-success">Submit</button>
-      				</form>
+                  <div class="form-group">
+                        <button type="submit" class="btn btn-success">Create</button>
+                        <a href="{{ URL::previous() }}" class="btn btn-danger wave-effect" >Back</a>
+                  </div> 
+                        				</form>
                      
                       
                     </div>

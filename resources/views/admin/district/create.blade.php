@@ -25,9 +25,13 @@
 					          <label for="name"> Name: </label>
 					          <input type="text" class="form-control" placeholder="Enter District Name" id="name" name="name">
 					        </div>
+
+                  <div class="form-group">
+                        <button type="submit" class="btn btn-success">Create</button>
+                        <a href="{{ URL::previous() }}" class="btn btn-danger wave-effect" >Back</a>
+                  </div>
 					      
 
-					        <button type="submit" class="btn btn-success">Submit</button>
       				</form>
                      
                       
