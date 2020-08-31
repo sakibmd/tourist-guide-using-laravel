@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\District;
 
 class DistrictController extends Controller
 {
@@ -14,7 +15,8 @@ class DistrictController extends Controller
      */
     public function index()
     {
-        return view('admin.district.index');
+        $districts = District::latest()->paginate(8);
+        return view('admin.district.index',compact('districts'));
     }
 
     /**
@@ -35,7 +37,15 @@ class DistrictController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name' => 'required|unique:districts'
+            ]);
+    
+            $districts = new District();
+            $districts->name = $request->name;
+            $districts->save();
+    
+            return redirect(route('admin.district.index'))->with('successMsg', 'District name inserted successfully');
     }
 
     /**
@@ -55,9 +65,10 @@ class DistrictController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(District $district)
     {
-        //
+
+         return view('admin.district.edit',compact('district',$district));
     }
 
     /**
@@ -69,7 +80,16 @@ class DistrictController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $districts=District::find($id);
+        $this->validate($request,[
+            'name' => 'required|unique:districts,name,'.$districts->id,
+            ]);
+    
+      
+        $districts->name = $request->name;
+        $districts->save();
+
+         return redirect(route('admin.district.index'))->with('successMsg', 'District Updated Successfully');
     }
 
     /**
@@ -78,8 +98,10 @@ class DistrictController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(District $district)
     {
-        //
+         $district->delete();
+
+      return redirect(route('admin.district.index'))->with('success', 'District deleted Successfully');;
     }
 }
