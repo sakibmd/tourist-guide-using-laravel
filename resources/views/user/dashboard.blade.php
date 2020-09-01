@@ -3,5 +3,5 @@
     Tourist Guide - Dashboard
 @endsection
 @section('content')
-<h1>Hello</h1>
+<h1>Hello User</h1>
  @endsection

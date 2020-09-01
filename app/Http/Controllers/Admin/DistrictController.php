@@ -45,7 +45,7 @@ class DistrictController extends Controller
             $districts->name = $request->name;
             $districts->save();
     
-            return redirect(route('admin.district.index'))->with('successMsg', 'District name inserted successfully');
+            return redirect(route('admin.district.index'))->with('success', 'District name inserted successfully');
     }
 
     /**
@@ -89,7 +89,7 @@ class DistrictController extends Controller
         $districts->name = $request->name;
         $districts->save();
 
-         return redirect(route('admin.district.index'))->with('successMsg', 'District Updated Successfully');
+         return redirect(route('admin.district.index'))->with('success', 'District Updated Successfully');
     }
 
     /**
@@ -102,6 +102,6 @@ class DistrictController extends Controller
     {
          $district->delete();
 
-      return redirect(route('admin.district.index'))->with('success', 'District deleted Successfully');
+        return redirect(route('admin.district.index'))->with('success', 'District deleted Successfully');
     }
 }

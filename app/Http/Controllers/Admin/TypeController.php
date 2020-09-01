@@ -45,7 +45,7 @@ class TypeController extends Controller
             $types->name = $request->name;
             $types->save();
     
-            return redirect(route('admin.type.index'))->with('successMsg', 'PlaceType name inserted successfully');
+            return redirect(route('admin.type.index'))->with('success', 'Place Type inserted successfully');
     }
 
     /**
@@ -88,7 +88,7 @@ class TypeController extends Controller
         $types->name = $request->name;
         $types->save();
 
-         return redirect(route('admin.type.index'))->with('successMsg', 'PlaceType Updated Successfully');
+         return redirect(route('admin.type.index'))->with('success', 'Place Type Updated Successfully');
     }
 
     /**
@@ -101,6 +101,6 @@ class TypeController extends Controller
     {
          $type->delete();
 
-      return redirect(route('admin.type.index'))->with('success', 'Placetype deleted Successfully');
+      return redirect(route('admin.type.index'))->with('success', 'Place Type Deleted Successfully');
     }
 }
