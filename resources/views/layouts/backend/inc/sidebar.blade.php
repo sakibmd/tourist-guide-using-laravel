@@ -48,6 +48,22 @@
               </p>
             </a>
           </li>
+          <li class="nav-item has-treeview">
+            <a href="{{ route('admin.about.index') }}" class="nav-link {{ Request::is('admin/about*') ? 'active' : '' }}">
+              <i class="fa fa-info-circle" aria-hidden="true"></i>
+              <p class="ml-2">
+                About
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a href="{{ route('admin.guide.index') }}" class="nav-link {{ Request::is('admin/guide*') ? 'active' : '' }}">
+              <i class="fa fa-user" aria-hidden="true"></i>
+              <p class="ml-2">
+                Guides
+              </p>
+            </a>
+          </li>
           @endif
 
           @if (Request::is('user*'))
