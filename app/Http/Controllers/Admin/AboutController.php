@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\About;
 
 class AboutController extends Controller
 {
@@ -14,7 +15,10 @@ class AboutController extends Controller
      */
     public function index()
     {
-        return view('admin.about.index');
+        $abouts=About::where('id',1)->get();
+        //dd($abouts->count());
+        return view('admin.about.index',compact('abouts'));
+       
     }
 
     /**
@@ -24,7 +28,7 @@ class AboutController extends Controller
      */
     public function create()
     {
-        //
+         return view('admin.about.create');
     }
 
     /**
@@ -35,7 +39,15 @@ class AboutController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'content' => 'required'
+            ]);
+    
+            $about = new About();
+            $about->content = $request->content;
+            $about->save();
+    
+            return redirect(route('admin.about.index'))->with('success', 'About  inserted successfully');
     }
 
     /**
@@ -55,9 +67,9 @@ class AboutController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(About $about)
     {
-        //
+         return view('admin.about.edit',compact('about',$about));
     }
 
     /**
@@ -69,7 +81,16 @@ class AboutController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $abouts=About::find($id);
+        $this->validate($request,[
+            'content' => 'required'
+            ]);
+    
+      
+        $abouts->content = $request->content;
+        $abouts->save();
+
+         return redirect(route('admin.about.index'))->with('success', 'Content Updated Successfully');
     }
 
     /**
@@ -78,8 +99,10 @@ class AboutController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(About $about)
     {
-        //
+         $about->delete();
+
+        return redirect(route('admin.about.index'))->with('success', 'About deleted Successfully');
     }
 }

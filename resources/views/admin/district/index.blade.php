@@ -37,7 +37,7 @@
                           <td>{{ $district->created_at->toFormattedDateString() }}</td>
                           <td> 
                             <a href="{{ route('admin.district.edit', $district->id) }}" class="btn btn-info">Edit</a>
-                             <button type="submit" onclick="handleDeleteDistrict({{ $district->id }})" class="btn btn-danger">Delete</button>
+                             <button type="submit" onclick="handleDeleteDistrict( {{ $district->id }}) " class="btn btn-danger">Delete</button>
                           </td>
                         </tr>
                         @endforeach    

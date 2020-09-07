@@ -4,5 +4,41 @@
 @endsection
 @section('content')
 
-About Index
-@endsection
+<div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-9">
+             
+               @include('partial.successMessage')  
+
+                <div class="card mt-5">
+                    <div class="card-header bg-dark">
+                      <h3 class="card-title float-left"><strong>About Us</strong></h3>
+                      
+                    <a href="{{route('admin.about.create')}}" class="btn btn-success btn-md float-right c-white">Add New <i class="fa fa-plus"></i></a>
+                    </div>
+                    <!-- /.card-header -->
+                    @if ($abouts->count() > 0)
+
+                     @foreach($abouts as $about)
+                      <div class="card-body" style="text-align: justify;">
+                         {!! $about->content !!}
+                      </div>
+                    <div class="card-footer">
+                          <a href="{{ route('admin.about.edit', $about->id) }}"  class="btn btn-info">Edit Content</a>
+
+                    </div>
+                    @endforeach
+                    @else
+                    <h2 class="text-center text-info font-weight-bold m-3">No Data Found</h2>
+                     @endif
+                      
+
+              
+                   
+            </div>
+                  <!-- /.card -->
+            </div>
+        </div>
+    </div><!-- /.container -->
+ @endsection
+
