@@ -72,7 +72,7 @@
                       
                     </div>
                     @else 
-                      <h2 class="text-center text-info font-weight-bold m-3">No Data Found</h2>
+                      <h2 class="text-center text-info font-weight-bold m-3">No District Found</h2>
                     @endif
                     <div class="pagination">
                       {{ $districts->links() }}
