@@ -14,7 +14,10 @@
                     <div class="card-header bg-dark">
                       <h3 class="card-title float-left"><strong>About Us</strong></h3>
                       
-                    <a href="{{route('admin.about.create')}}" class="btn btn-success btn-md float-right c-white">Add New <i class="fa fa-plus"></i></a>
+                      @if (!$abouts->count() > 0)
+                      <a href="{{route('admin.about.create')}}" class="btn btn-success btn-md float-right c-white">Add New <i class="fa fa-plus"></i></a>
+                      @endif
+
                     </div>
                     <!-- /.card-header -->
                     @if ($abouts->count() > 0)
