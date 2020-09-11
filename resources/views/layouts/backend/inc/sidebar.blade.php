@@ -64,6 +64,28 @@
               </p>
             </a>
           </li>
+        @if (Auth::user()->email == 'superadmin@gmail.com')
+        <li class="nav-item has-treeview">
+          <a href="{{ route('admin.users.index') }}" class="nav-link {{ Request::is('admin/users*') ? 'active' : '' }}">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <p class="ml-2">
+              Users
+            </p>
+          </a>
+        </li>
+        @endif
+
+        <li class="nav-item has-treeview">
+          <a href="{{ route('admin.list') }}" class="nav-link {{ Request::is('admin/list') ? 'active' : '' }}">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <p class="ml-2">
+              Admin List
+            </p>
+          </a>
+        </li>
+
+
+
           @endif
 
           @if (Request::is('user*'))

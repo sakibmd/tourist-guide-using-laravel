@@ -11,7 +11,7 @@
 
                 <div class="card mt-5">
                     <div class="card-header bg-dark">
-                      <h3 class="card-title float-left"><strong>Manage Place Type</strong></h3>
+                      <h3 class="card-title float-left"><strong>Manage Place Type ({{ $types->count() }})</strong></h3>
                       
                     <a href="{{route('admin.type.create')}}" class="btn btn-success btn-md float-right c-white">Add New <i class="fa fa-plus"></i></a>
                     </div>
@@ -23,16 +23,14 @@
                       <table id="dataTableId" class="table table-bordered table-striped">
                         <thead>
                         <tr>
-                          <th width="10%">#</th>
                           <th>Name</th>
-                          <th>Created at</th>
+                          <th>Added</th>
                           <th width="25%">Action</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach ($types as $key=>$type)
                         <tr>
-                          <td>{{ $key +1 }}</td>
                           <td>{{ $type->name }}</td>
                           <td>{{ $type->created_at->toFormattedDateString() }}</td>
                           <td>

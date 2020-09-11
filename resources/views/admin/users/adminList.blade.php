@@ -1,42 +1,44 @@
 @extends('layouts.backend.master')
 @section('title')
-    Tourist Guide - District
+    Tourist Guide - Admins List 
 @endsection
 @section('content')
 
 
 <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-9">
+            <div class="col-md-12">
 
               	@include('partial.successMessage')
 
                 <div class="card mt-5">
                     <div class="card-header  bg-dark">
-                      <h3 class="card-title float-left p-0 m-0"><strong>Manage District ({{ $districts->count() }})</strong></h3>
-                    <a href="{{route('admin.district.create')}}" class="btn btn-success btn-md float-right c-white">Add New <i class="fa fa-plus"></i></a>
+                      <h3 class="card-title float-left p-0 m-0"><strong>Manage Users ({{ $admins->count() }})</strong></h3>
                     </div>
                     <!-- card-header -->
-                    @if ($districts->count() > 0)
+                    @if ($admins->count() > 0)
                     <div class="card-body">
                     <div class="table-responsive">
                       <table id="dataTableId" class="table table-bordered table-striped">
                         <thead>
                         <tr>
                           <th>Name</th>
-                          <th>Added</th>
+                          <th>Email</th>
+                          <th>Contact</th>
+                          <th>Member Since</th>
                           <th width="25%">Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach ($districts as $key=>$district)
+                        @foreach ($admins as $key=>$user)
                         <tr>
-                          <td>{{ $district->name }}</td>
-                          <td>{{ $district->created_at->toFormattedDateString() }}</td>
+                          <td>{{ $user->name }}</td>
+                          <td>{{ $user->email }}</td>
+                          <td>{{ $user->contact }}</td>
+                          <td>{{ $user->created_at->diffForHumans() }}</td>
                           <td> 
-                            <a href="{{ route('admin.district.edit', $district->id) }}" class="btn btn-info">Edit</a>
-                             <button type="submit" onclick="handleDeleteDistrict( {{ $district->id }}) " class="btn btn-danger">Delete</button>
-                          </td>
+                                <button type="submit" class="btn btn-warning" onclick="changeRole({{ $user->id }})">Make as User</button>
+                         </td>
                         </tr>
                         @endforeach    
                         </tbody>
@@ -44,24 +46,24 @@
                     </div>
 
                      <!-- Modal -->
-                <div class="modal fade" id="deleteDistrictModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="changeRoleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
-                      <form action="" id="deleteDistrictForm" method="POST">
+                      <form action="" id="changeRoleForm" method="POST">
                           @csrf 
-                          @method('DELETE')
+                          @method('PUT')
                               <div class="modal-content">
                                   <div class="modal-header">
-                                  <h5 class="modal-title" id="exampleModalLabel">District Delete</h5>
+                                  <h5 class="modal-title" id="exampleModalLabel">Manage Admins</h5>
                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                       <span aria-hidden="true">&times;</span>
                                   </button>
                                   </div>
                                   <div class="modal-body">
-                                      <div class="text-center">Are you sure to delete this district?</div>
+                                      <div class="text-center">Are you sure to make him/her User?</div>
                                   </div>
                                   <div class="modal-footer">
                                   <button type="button" class="btn btn-success" data-dismiss="modal">No, Go Back</button>
-                                  <button type="submit" class="btn btn-danger">Yes, Delete</button>
+                                  <button type="submit" class="btn btn-danger">Yes, Change It</button>
                                   </div>
                               </div>
                       </form>
@@ -70,10 +72,10 @@
                       
                     </div>
                     @else 
-                      <h2 class="text-center text-info font-weight-bold m-3">No District Found</h2>
+                      <h2 class="text-center text-info font-weight-bold m-3">No Admin Found</h2>
                     @endif
                     <div class="pagination">
-                      {{ $districts->links() }}
+                      {{ $admins->links() }}
                     </div>
                     <!-- /.card-body -->
                   </div>
@@ -85,11 +87,11 @@
 
  @section('scripts')
    <script>
-       function handleDeleteDistrict(id){
+       function changeRole(id){
 
-          var form = document.getElementById('deleteDistrictForm')
-          form.action = 'district/' + id 
-          $('#deleteDistrictModal').modal('show')
+          var form = document.getElementById('changeRoleForm')
+          form.action = 'users/' + id 
+          $('#changeRoleModal').modal('show')
           //console.log(form)
        }
    </script>

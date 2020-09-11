@@ -11,8 +11,9 @@
 				<div class="card-header"><strong>Details</strong></div>
 				<div class="card-body">
 					<table class="table">
-						<tr >
-							<td><img style="" class="img-fluid" src="{{ asset('storage/guide/'.$guide->image) }}" alt="image"></td>
+						<tr>
+							<th></th>
+							<td><img class="img-fluid"  style="border-radius: 10%;border:2px solid rgb(110, 110, 110);" src="{{ asset('storage/guide/'.$guide->image) }}" alt="image"></td>
 						</tr>
 						<tr>
 							<th>Name</th>

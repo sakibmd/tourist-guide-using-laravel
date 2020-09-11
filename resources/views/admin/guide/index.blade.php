@@ -5,13 +5,13 @@
 @section('content')
 <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-9">
+            <div class="col-md-12">
 
               	@include('partial.successMessage')
 
                 <div class="card mt-5">
                     <div class="card-header  bg-dark">
-                      <h3 class="card-title float-left p-0 m-0"><strong>Manage Guide</strong></h3>
+                      <h3 class="card-title float-left p-0 m-0"><strong>Manage Guide ({{ $guides->count() }})</strong></h3>
                     <a href="{{route('admin.guide.create')}}" class="btn btn-success btn-md float-right c-white">Add New <i class="fa fa-plus"></i></a>
                     </div>
                     <!-- card-header -->
@@ -21,8 +21,8 @@
                       <table id="dataTableId" class="table table-bordered table-striped">
                         <thead>
                         <tr>
-                          <th>#</th>
                           <th>Name</th>
+                          <th>Email</th>
                            <th>Contact</th>
                            <th>image</th>
                           <th >Action</th>
@@ -31,8 +31,8 @@
                         <tbody>
                         @foreach ($guides as $key=>$guide)
                         <tr>
-                          <td>{{ $key +1 }}</td>
                           <td>{{ $guide->name }}</td> 
+                          <td>{{ $guide->email }}</td> 
                            <td>{{ $guide->contact }}</td>
                           <td>
                             <img style="height: 70px; width: 60px;" class="img-fluid" src="{{ asset('storage/guide/'.$guide->image) }}" alt="image">

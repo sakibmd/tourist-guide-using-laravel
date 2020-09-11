@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 use Carbon\Carbon;
 use App\Guide;
+use Illuminate\Support\Carbon as SupportCarbon;
 
 class GuideController extends Controller
 {
@@ -134,21 +135,13 @@ class GuideController extends Controller
             'email' => 'required|email|unique:guides,email,'.$guide->id,
             'contact' => 'required|numeric|unique:guides,contact,'.$guide->id,
             'address' => 'required',
-             'image' => 'mimes:jpeg,png,jpg|image',
-          
-
-
+            'image' => 'mimes:jpeg,png,jpg|image',
             ]);
     
       
         // Get Form Image
         $image = $request->file('image');
-        $old_image = $request->file('old_image');
-
         if (isset($image)) {
-
-             
-
         // Make Unique Name for Image 
         $currentDate = Carbon::now()->toDateString();
         $imageName =$currentDate.'-'.uniqid().'.'.$image->getClientOriginalExtension();

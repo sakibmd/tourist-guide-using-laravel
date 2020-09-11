@@ -14,9 +14,11 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'role_id' => '1',
             'name' => 'John Doe',
-            'email' => 'admin@gmail.com',
+            'email' => 'superadmin@gmail.com',
             'contact' => '01670605075',
             'password' => bcrypt('rootadmin'),
+            'created_at' => '2020-09-01 21:18:10.000000',
+            'updated_at' => '2020-09-01 21:18:10.000000',
         ]);
 
         DB::table('users')->insert([
@@ -25,6 +27,8 @@ class UsersTableSeeder extends Seeder
             'email' => 'user@gmail.com',
             'contact' => '01712121212',
             'password' => bcrypt('rootuser'),
+            'created_at' => '2020-09-01 21:18:10.000000',
+            'updated_at' => '2020-09-01 21:18:10.000000',
         ]);
     }
 }

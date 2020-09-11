@@ -6,7 +6,7 @@
 
 <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-9">
+            <div class="col-md-12">
              
                @include('partial.successMessage')  
 
@@ -34,10 +34,7 @@
                     @else
                     <h2 class="text-center text-info font-weight-bold m-3">No Content Found</h2>
                      @endif
-                      
-
-              
-                   
+                       
             </div>
                   <!-- /.card -->
             </div>
