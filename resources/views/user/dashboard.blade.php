@@ -3,5 +3,11 @@
     Tourist Guide - Dashboard
 @endsection
 @section('content')
-<h1>Hello User</h1>
+<div class="container">
+    <div class="row text-center">
+        <div class="col-12">
+            <h2 class="welcome">Welcome To Your Profile - <span class="welcome-name">{{ Auth::user()->name }}</span></h2>
+        </div>
+    </div>
+</div>
  @endsection
