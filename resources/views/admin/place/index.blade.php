@@ -1,10 +1,8 @@
 @extends('layouts.backend.master')
 @section('title')
-    Tourist Guide - Admins List 
+    Tourist Guide - Places
 @endsection
 @section('content')
-
-
 <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
@@ -13,32 +11,39 @@
 
                 <div class="card mt-5">
                     <div class="card-header  bg-dark">
-                      <h3 class="card-title float-left p-0 m-0"><strong>Manage Users ({{ $admins->count() }})</strong></h3>
+                      <h3 class="card-title float-left p-0 m-0"><strong>Manage Place ({{ $places->count() }})</strong></h3>
+                    <a href="{{route('admin.place.create')}}" class="btn btn-success btn-md float-right c-white">Add New <i class="fa fa-plus"></i></a>
                     </div>
                     <!-- card-header -->
-                    @if ($admins->count() > 0)
+                    @if ($places->count() > 0)
                     <div class="card-body">
                     <div class="table-responsive">
                       <table id="dataTableId" class="table table-bordered table-striped">
                         <thead>
                         <tr>
                           <th>Name</th>
-                          <th>Email</th>
-                          <th>Contact</th>
-                          <th>Member Since</th>
-                          <th width="25%">Action</th>
+                          <th>Added By</th>
+                           <th>District</th>
+                           <th>image</th>
+                          <th >Action</th>
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach ($admins as $key=>$user)
+                        @foreach ($places as $key=>$place)
                         <tr>
-                          <td>{{ $user->name }}</td>
-                          <td>{{ $user->email }}</td>
-                          <td>{{ $user->contact }}</td>
-                          <td>{{ $user->created_at->diffForHumans() }}</td>
+                          <td>{{ $place->name }}</td> 
+                          <td>{{ $place->addedBy }}</td> 
+                           <td>{{ $place->district->name }}</td>
+                          <td>
+                            <img style="height: 60px; width: 100px;" class="img-fluid" src="{{ asset('storage/place/'.$place->image) }}" alt="image">
+                          </td>
                           <td> 
-                                <button type="submit" class="btn btn-danger" onclick="changeRole({{ $user->id }})">Make as User</button>
-                         </td>
+                            <a href="{{ route('admin.place.show', $place->id) }}" class="btn btn-success">Details</a>
+
+                            <a href="{{ route('admin.place.edit', $place->id) }}" class="btn btn-info">Edit</a>
+
+                             <button type="submit" onclick="handleDeletePlace( {{ $place->id }}) " class="btn btn-danger">Delete</button>
+                          </td>
                         </tr>
                         @endforeach    
                         </tbody>
@@ -46,24 +51,24 @@
                     </div>
 
                      <!-- Modal -->
-                <div class="modal fade" id="changeRoleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="deletePlaceModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
-                      <form action="" id="changeRoleForm" method="POST">
+                      <form action="" id="deletePlaceForm" method="POST">
                           @csrf 
-                          @method('PUT')
+                          @method('DELETE')
                               <div class="modal-content">
                                   <div class="modal-header">
-                                  <h5 class="modal-title" id="exampleModalLabel">Manage Admins</h5>
+                                  <h5 class="modal-title" id="exampleModalLabel">Place Delete</h5>
                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                       <span aria-hidden="true">&times;</span>
                                   </button>
                                   </div>
                                   <div class="modal-body">
-                                      <div class="text-center">Are you sure to make him/her User?</div>
+                                      <div class="text-center">Are you sure to delete this place information?</div>
                                   </div>
                                   <div class="modal-footer">
                                   <button type="button" class="btn btn-success" data-dismiss="modal">No, Go Back</button>
-                                  <button type="submit" class="btn btn-danger">Yes, Change It</button>
+                                  <button type="submit" class="btn btn-danger">Yes, Delete</button>
                                   </div>
                               </div>
                       </form>
@@ -72,10 +77,10 @@
                       
                     </div>
                     @else 
-                      <h2 class="text-center text-info font-weight-bold m-3">No Admin Found</h2>
+                      <h2 class="text-center text-info font-weight-bold m-3">No Place Found</h2>
                     @endif
                     <div class="pagination">
-                      {{ $admins->links() }}
+                      {{ $places->links() }}
                     </div>
                     <!-- /.card-body -->
                   </div>
@@ -87,12 +92,11 @@
 
  @section('scripts')
    <script>
-       function changeRole(id){
+       function handleDeletePlace(id){
 
-          var form = document.getElementById('changeRoleForm')
-          form.action = 'users/' + id 
-          $('#changeRoleModal').modal('show')
-          //console.log(form)
+          var form = document.getElementById('deletePlaceForm')
+          form.action = 'place/' + id 
+          $('#deletePlaceModal').modal('show')
        }
    </script>
 @endsection

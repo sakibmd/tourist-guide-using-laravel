@@ -57,6 +57,14 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
+            <a href="{{ route('admin.place.index') }}" class="nav-link {{ Request::is('admin/place*') ? 'active' : '' }}">
+              <i class="fa fa-info-circle" aria-hidden="true"></i>
+              <p class="ml-2">
+                Places
+              </p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
             <a href="{{ route('admin.guide.index') }}" class="nav-link {{ Request::is('admin/guide*') ? 'active' : '' }}">
               <i class="fa fa-user" aria-hidden="true"></i>
               <p class="ml-2">
@@ -83,6 +91,7 @@
             </p>
           </a>
         </li>
+        
 
 
 

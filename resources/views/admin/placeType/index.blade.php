@@ -25,6 +25,7 @@
                         <tr>
                           <th>Name</th>
                           <th>Added</th>
+                          <th>Place Count</th>
                           <th width="25%">Action</th>
                         </tr>
                         </thead>
@@ -33,6 +34,7 @@
                         <tr>
                           <td>{{ $type->name }}</td>
                           <td>{{ $type->created_at->toFormattedDateString() }}</td>
+                          <td>{{ $type->places->count() }}</td>
                           <td>
                           
                               <a href="{{ route('admin.type.edit', $type->id) }}"  class="btn btn-info">Edit</a>

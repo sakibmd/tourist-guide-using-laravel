@@ -29,7 +29,7 @@
 						          <label for="nid"> Nid: </label>
 						          <input type="text" class="form-control" placeholder="Enter Guide nid" id="nid" name="nid" 
 						          value="{{old('nid',$guide->nid) }}">
-					        </div>
+					        	</div>
 
 					         <div class="form-group">
 						          <label for="email"> Email: </label>
@@ -57,7 +57,7 @@
 					        <div class="form-group">
 					          <label for="image"> Old Image</label>
 					          <img src="{{ asset('storage/guide/'.$guide->image) }}" height="80px;" width="60px;">
-					        <input type="hidden" name="old_image" value="{{ $guide->image }}">   
+					        	<input type="hidden" name="old_image" value="{{ $guide->image }}">   
           
        						 </div>
 					      

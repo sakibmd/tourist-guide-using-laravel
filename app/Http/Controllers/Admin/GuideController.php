@@ -90,7 +90,7 @@ class GuideController extends Controller
     $guide->contact = $request->contact;
     $guide->address = $request->address;
     $guide->save();
-    return redirect(route('admin.guide.index'))->with('successMsg', 'Guide Inserted Successfully');
+    return redirect(route('admin.guide.index'))->with('success', 'Guide Inserted Successfully');
 
     }
 
@@ -128,7 +128,7 @@ class GuideController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $guide=Guide::find($id);
+        $guide = Guide::find($id);
         $this->validate($request,[
             'name' => 'required',
             'nid' => 'required|numeric|unique:guides,nid,'.$guide->id,
@@ -162,13 +162,7 @@ class GuideController extends Controller
         Storage::disk('public')->put('guide/'.$imageName,$GuideImage);
   
      }else{
-
-        $ext = pathinfo(public_path().'guide/'.$guide->image, PATHINFO_EXTENSION);
-        $currentDate = Carbon::now()->toDateString();
-        $imageName = $currentDate.'-'.uniqid().'.'.$ext;
-              
-        Storage::disk('public')->rename('guide/'.$guide->image, 'guide/'.$imageName);
-        $guide->image = $imageName;
+        $imageName = $guide->image;
      }
   
 

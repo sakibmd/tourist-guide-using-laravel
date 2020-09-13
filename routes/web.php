@@ -32,6 +32,7 @@ Route::group([
     Route::get('dashboard','DashboardController@index')->name('dashboard');
     Route::resource('district', 'DistrictController');
     Route::resource('type', 'TypeController');
+    Route::resource('place', 'PlaceController');
     Route::resource('about', 'AboutController');
     Route::resource('guide', 'GuideController');
     Route::resource('users', 'UsersController');

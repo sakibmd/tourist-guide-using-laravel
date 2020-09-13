@@ -8,7 +8,7 @@
 	<div class="row justify-content-center">
 		<div class="col-md-6 m-5">
 			<div class="card">
-				<div class="card-header"><strong>Details</strong></div>
+				<div class="card-header bg-info"><strong>Details</strong></div>
 				<div class="card-body">
 					<table class="table">
 						<tr>

@@ -38,7 +38,9 @@
         </div>
     </div><!-- /.container -->
     
- @section('scripts')
+@endsection
+
+@section('scripts')
 <script src="{{ asset('js/trix.js') }}"></script>
 @endsection
 
@@ -46,5 +48,3 @@
 <link href="{{ asset('css/trix.css') }}" rel="stylesheet">
 @endsection
       
-
-@endsection

@@ -25,6 +25,7 @@
                         <tr>
                           <th>Name</th>
                           <th>Added</th>
+                          <th>Place Count</th>
                           <th width="25%">Action</th>
                         </tr>
                         </thead>
@@ -33,6 +34,7 @@
                         <tr>
                           <td>{{ $district->name }}</td>
                           <td>{{ $district->created_at->toFormattedDateString() }}</td>
+                          <td>{{ $district->places->count() }}</td>
                           <td> 
                             <a href="{{ route('admin.district.edit', $district->id) }}" class="btn btn-info">Edit</a>
                              <button type="submit" onclick="handleDeleteDistrict( {{ $district->id }}) " class="btn btn-danger">Delete</button>
