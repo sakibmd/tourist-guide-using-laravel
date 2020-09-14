@@ -176,8 +176,10 @@ class PlaceController extends Controller
      */
     public function destroy(Place $place)
     {
+        if($district->place->count() > 0){
+            return redirect()->back()->with('danger', 'Place type cannot be deleted, because it has some places');
+        }
         $place->delete();
-
         return redirect(route('admin.place.index'))->with('success', 'Placfe Information deleted Successfully');
     }
 }

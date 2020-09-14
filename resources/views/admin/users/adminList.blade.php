@@ -62,8 +62,8 @@
                                       <div class="text-center">Are you sure to make him/her User?</div>
                                   </div>
                                   <div class="modal-footer">
-                                  <button type="button" class="btn btn-success" data-dismiss="modal">No, Go Back</button>
-                                  <button type="submit" class="btn btn-danger">Yes, Change It</button>
+                                  <button type="button" class="btn btn-danger" data-dismiss="modal">No, Go Back</button>
+                                  <button type="submit" class="btn btn-success">Yes, Change It</button>
                                   </div>
                               </div>
                       </form>

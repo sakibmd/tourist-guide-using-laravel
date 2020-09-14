@@ -100,8 +100,11 @@ class DistrictController extends Controller
      */
     public function destroy(District $district)
     {
-         $district->delete();
+        if($district->places->count() > 0){
+            return redirect()->back()->with('danger', 'District cannot be deleted, because it has some places');
+        } 
 
+        $district->delete();
         return redirect(route('admin.district.index'))->with('success', 'District deleted Successfully');
     }
 }
