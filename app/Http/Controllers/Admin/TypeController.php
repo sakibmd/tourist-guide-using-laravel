@@ -39,11 +39,11 @@ class TypeController extends Controller
     {
         $this->validate($request,[
             'name' => 'required|unique:placetypes'
-            ]);
+        ]);
     
-            $types = new Placetype();
-            $types->name = $request->name;
-            $types->save();
+        $types = new Placetype();
+        $types->name = $request->name;
+        $types->save();
     
             return redirect(route('admin.type.index'))->with('success', 'Place Type inserted successfully');
     }

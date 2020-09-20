@@ -185,6 +185,12 @@ class GuideController extends Controller
      */
     public function destroy(Guide $guide)
     {
+         
+        // Delete image
+        if(Storage::disk('public')->exists('guide/'.$guide->image)){
+                Storage::disk('public')->delete('guide/'.$guide->image);
+        }
+
          $guide->delete();
 
         return redirect(route('admin.guide.index'))->with('success', 'Guide deleted Successfully');

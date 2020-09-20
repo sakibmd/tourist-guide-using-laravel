@@ -39,7 +39,7 @@
 				</div>
 				<div class="card-footer">
 					<a href="{{ route('admin.guide.edit', $guide->id) }}" class="btn btn-info">Edit</a>
-					<a href="{{ URL::previous() }}" class="btn btn-danger">Back</a>
+					<a href="{{ route('admin.guide.index') }}" class="btn btn-danger">Back</a>
 				</div>
 			</div>
 		</div>	

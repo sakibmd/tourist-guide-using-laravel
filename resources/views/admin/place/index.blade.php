@@ -24,6 +24,7 @@
                           <th>Name</th>
                           <th>Added By</th>
                            <th>District</th>
+                           <th>Type</th>
                            <th>image</th>
                           <th >Action</th>
                         </tr>
@@ -34,6 +35,7 @@
                           <td>{{ $place->name }}</td> 
                           <td>{{ $place->addedBy }}</td> 
                            <td>{{ $place->district->name }}</td>
+                           <td>{{ $place->placetype->name }}</td>
                           <td>
                             <img style="height: 60px; width: 100px;" class="img-fluid" src="{{ asset('storage/place/'.$place->image) }}" alt="image">
                           </td>

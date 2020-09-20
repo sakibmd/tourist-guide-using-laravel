@@ -1,6 +1,5 @@
 
-
-<aside class="main-sidebar sidebar-dark-primary elevation-4">
+<aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: rgb(204, 83, 83);">
     <!-- Brand Logo -->
     <a href="" class="brand-link text-center">
       <span class="brand-text font-weight-bold">{{ Auth::user()->role_id == 1 ? 'Admin Panel' : 'User Panel' }}</span>

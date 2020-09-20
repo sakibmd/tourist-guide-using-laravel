@@ -29,7 +29,6 @@
                     </div>
 				</div>
 				<div class="card-footer">
-					<a href="{{ route('admin.place.edit', $place->id) }}" class="btn btn-info">Edit</a>
 					<a href="{{ route('admin.place.index') }}" class="btn btn-danger">Back</a>
 				</div>
 			</div>
