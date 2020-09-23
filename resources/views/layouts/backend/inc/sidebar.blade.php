@@ -1,5 +1,5 @@
 
-<aside class="main-sidebar sidebar-dark-primary elevation-4" style="background-color: rgb(204, 83, 83);">
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="" class="brand-link text-center">
       <span class="brand-text font-weight-bold">{{ Auth::user()->role_id == 1 ? 'Admin Panel' : 'User Panel' }}</span>
@@ -87,6 +87,16 @@
             <i class="fa fa-list" aria-hidden="true"></i>
               <p class="ml-2">
               Admin List
+            </p>
+          </a>
+        </li>
+
+
+        <li class="nav-item has-treeview">
+          <a href="{{ route('admin.package.index') }}" class="nav-link {{ Request::is('admin/package') ? 'active' : '' }}">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+              <p class="ml-2">
+                  Packages
             </p>
           </a>
         </li>

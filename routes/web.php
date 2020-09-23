@@ -36,6 +36,7 @@ Route::group([
     Route::resource('about', 'AboutController');
     Route::resource('guide', 'GuideController');
     Route::resource('users', 'UsersController');
+    Route::resource('package', 'PackageController');
     Route::get('list', 'UsersController@adminList')->name('list');
 });
 

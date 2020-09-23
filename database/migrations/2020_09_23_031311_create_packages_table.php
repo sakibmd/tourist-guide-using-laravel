@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGuidesTable extends Migration
+class CreatePackagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,15 @@ class CreateGuidesTable extends Migration
      */
     public function up()
     {
-        Schema::create('guides', function (Blueprint $table) {
+        Schema::create('packages', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nid')->unique();
+            $table->string('added_by');
             $table->string('name');
-            $table->string('email')->unique();
-            $table->string('contact')->unique();
-            $table->string('address');
-            $table->string('image')->default('default.png');
-            $table->string('status')->default(1);  //1 means available
+            $table->string('price');
+            $table->string('day');
+            $table->string('people');
+            $table->string('package_image');
+            $table->text('description');
             $table->timestamps();
         });
     }
@@ -33,6 +33,6 @@ class CreateGuidesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('guides');
+        Schema::dropIfExists('packages');
     }
 }

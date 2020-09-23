@@ -32,14 +32,15 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-<script src="{{asset('backend/app.js')}}"></script>
-<script src="{{asset('assets/admin/js/custom.js')}}"></script>
+
 
 <script>
   setTimeout(function() {
       $('#alert').fadeOut('fast');
   }, 6000);
 </script>
+<script src="{{asset('backend/app.js')}}"></script>
+<script src="{{asset('assets/admin/js/custom.js')}}"></script>
 
 @yield('scripts')
 

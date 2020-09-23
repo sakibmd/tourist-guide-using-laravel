@@ -13,4 +13,8 @@ class Place extends Model
     public function district(){
         return $this->belongsTo(District::class);
     }
+
+    public function packages(){
+        return $this->belongsToMany(Package::class);
+    }
 }
