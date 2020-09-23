@@ -44,7 +44,7 @@
 
                             <a href="{{ route('admin.place.edit', $place->id) }}" class="btn btn-info">Edit</a>
 
-                             <button type="submit" onclick="handleDeletePlace( {{ $place->id }}) " class="btn btn-danger">Delete</button>
+                            <button type="submit" onclick="handleDeletePlace( {{ $place->id }}) " class="btn btn-danger">Delete</button>
                           </td>
                         </tr>
                         @endforeach    

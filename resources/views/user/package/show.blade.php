@@ -1,0 +1,47 @@
+@extends('layouts.backend.master')
+@section('title')
+    Package Details - {{ $package->name }}
+@endsection
+
+@section('content')
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                            <h2><strong>Package Details: </strong></h2>
+                            <a href="{{ route('user.package') }}" class="btn btn-danger">Back</a>  
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            
+            <table class="table">
+                <tr>
+                    <th>Package Name</th>
+                    <td>{{ $package->name }}</td>
+                </tr>
+                <tr>
+                    <th>Package Added By</th>
+                    <td>{{ $package->added_by }}</td>
+                </tr>
+                <tr>
+                    <th>Package Price</th>
+                    <td>{{ $package->price }}</td>
+                </tr>
+                <tr>
+                    <th>People</th>
+                    <td>{{ $package->people }}</td>
+                </tr>
+                <tr>
+                    <th>Day</th>
+                    <td>{{ $package->day }}</td>
+                </tr>
+            </table>
+            <br>
+            <h3 style="color: whitesmoke; background-color: black; padding:12px;">Description & rules: </h3>
+           <div style="text-align: justify">  {!! $package->description !!}</div>
+        </div>
+    </div>
+@endsection

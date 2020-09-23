@@ -33,8 +33,7 @@ class PackageController extends Controller
     public function create()
     {
         $places =  Place::latest()->get();
-        $guides = Guide::where('status', 1)->latest()->get();
-        return view('admin.package.create', compact('places', 'guides'));
+        return view('admin.package.create', compact('places'));
     }
 
     /**
@@ -108,9 +107,10 @@ class PackageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        //
+    public function edit(Package $package)
+    {   
+        $places =  Place::latest()->get();
+        return view('admin.package.edit')->with('package', $package)->with('places', $places);
     }
 
     /**
@@ -122,7 +122,55 @@ class PackageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'name' => 'required',
+            'price' => 'required|numeric|integer',
+            'day' => 'required|numeric|integer',
+            'people' => 'required|numeric|integer',
+            'package_image' => 'mimes:jpeg,png,jpg',
+            'description' => 'required',
+        ]);
+
+        $package = Package::findOrFail($id);
+
+        // Get Form Image
+        $image = $request->file('package_image');
+        if (isset($image)) {
+
+        // Make Unique Name for Image 
+        $currentDate = Carbon::now()->toDateString();
+        $imageName =$currentDate.'-'.uniqid().'.'.$image->getClientOriginalExtension();
+
+
+      // Check Category Dir is exists
+
+          if (!Storage::disk('public')->exists('packageImage')) 
+          {
+             Storage::disk('public')->makeDirectory('packageImage');
+          }
+
+          if(Storage::disk('public')->exists('packageImage/'.$package->package_image))
+          {
+            Storage::disk('public')->delete('packageImage/'.$package->package_image);
+          }
+
+
+            // Resize Image for category and upload
+            $PlaceImage = Image::make($image)->resize(1000,600)->stream();
+            Storage::disk('public')->put('packageImage/'.$imageName,$PlaceImage);
+            $package->package_image = $imageName;
+        }
+
+        $package->name = $request->name;
+        $package->price = $request->price;
+        $package->day = $request->day;
+        $package->people = $request->people;
+        $package->description = $request->description;
+        $package->save();
+
+        $package->places()->sync($request->places);
+
+        return redirect(route('admin.package.index'))->with('success', 'Package Updated Successfully');
     }
 
     /**
@@ -131,8 +179,15 @@ class PackageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Package $package)
     {
-        //
+        if(Storage::disk('public')->exists('packageImage/'.$package->package_image))
+        {
+            Storage::disk('public')->delete('packageImage/'.$package->package_image);
+        }
+        
+        $package->places()->detach();
+        $package->delete();
+        return redirect(route('admin.package.index'))->with('success', 'Package Removed Successfully');
     }
 }

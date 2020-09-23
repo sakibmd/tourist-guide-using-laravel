@@ -49,4 +49,15 @@ Route::group([
     ]
 ], function () {
     Route::get('dashboard','DashboardController@index')->name('dashboard');
+    Route::get('districts','DashboardController@getDistrict')->name('district');
+    Route::get('placetypes','DashboardController@getPlaceType')->name('placetype');
+    
+    Route::get('places','DashboardController@getPlaces')->name('place');
+    Route::get('places/{id}','DashboardController@getPlaceDetails')->name('place.show');
+
+    Route::get('guides','DashboardController@getGuides')->name('guide');
+    Route::get('guide/{id}','DashboardController@getGuideDetails')->name('guide.show');
+
+    Route::get('packages','DashboardController@getPackage')->name('package');
+    Route::get('packages/{id}','DashboardController@getPackageDetails')->name('package.show');
 });

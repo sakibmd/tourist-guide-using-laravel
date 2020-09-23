@@ -93,7 +93,7 @@
 
 
         <li class="nav-item has-treeview">
-          <a href="{{ route('admin.package.index') }}" class="nav-link {{ Request::is('admin/package') ? 'active' : '' }}">
+          <a href="{{ route('admin.package.index') }}" class="nav-link {{ Request::is('admin/package*') ? 'active' : '' }}">
             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
               <p class="ml-2">
                   Packages
@@ -116,6 +116,53 @@
                 </p>
               </a>
             </li>
+
+
+            <li class="nav-item has-treeview">
+              <a href="{{ route('user.district') }}" class="nav-link {{ Request::is('user/districts') ? 'active' : '' }}">
+                <i class="fas fa-chart-area"></i>
+                <p class="ml-2">
+                  District
+                </p>
+              </a>
+            </li>
+            <li class="nav-item has-treeview">
+              <a href="{{ route('user.placetype') }}" class="nav-link {{ Request::is('user/placetypes') ? 'active' : '' }}">
+                <i class="fas fa-atlas"></i>
+                <p class="ml-2">
+                  Place Type
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item has-treeview">
+              <a href="{{ route('user.place') }}" class="nav-link {{ Request::is('user/places*') ? 'active' : '' }}">
+                <i class="fa fa-info-circle" aria-hidden="true"></i>
+                <p class="ml-2">
+                  Places
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item has-treeview">
+              <a href="{{ route('user.guide') }}" class="nav-link {{ Request::is('user/guide*') ? 'active' : '' }}">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <p class="ml-2">
+                  Guides
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item has-treeview">
+              <a href="{{ route('user.package') }}" class="nav-link {{ Request::is('user/package*') ? 'active' : '' }}">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                  <p class="ml-2">
+                      Packages
+                </p>
+              </a>
+            </li>
+
+
           @endif
         </ul>
       </nav>

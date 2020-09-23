@@ -82,7 +82,7 @@
 
                     <div class="form-group">
                             <button type="submit" class="btn btn-success">Create</button>
-                            <a href="{{ route('admin.place.index') }}" class="btn btn-danger wave-effect" >Back</a>
+                            <a href="{{ route('admin.package.index') }}" class="btn btn-danger wave-effect" >Back</a>
                     </div>
 					      
 

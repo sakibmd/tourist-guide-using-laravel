@@ -180,6 +180,6 @@ class PlaceController extends Controller
             return redirect()->back()->with('danger', 'Place type cannot be deleted, because it has some places');
         }
         $place->delete();
-        return redirect(route('admin.place.index'))->with('success', 'Placfe Information deleted Successfully');
+        return redirect(route('admin.place.index'))->with('success', 'Place Information deleted Successfully');
     }
 }
