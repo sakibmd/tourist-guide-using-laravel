@@ -30,6 +30,11 @@ Route::group([
     ]
 ], function () {
     Route::get('dashboard','DashboardController@index')->name('dashboard');
+
+    Route::get('profile-info','DashboardController@showProfile')->name('profile.show');
+    Route::get('profile-info/edit/{id}','DashboardController@editProfile')->name('profile.edit');
+    Route::post('profile-info/update','DashboardController@updateProfile')->name('profile.update');
+
     Route::resource('district', 'DistrictController');
     Route::resource('type', 'TypeController');
     Route::resource('place', 'PlaceController');
@@ -49,6 +54,12 @@ Route::group([
     ]
 ], function () {
     Route::get('dashboard','DashboardController@index')->name('dashboard');
+
+    Route::get('profile-info','DashboardController@showProfile')->name('profile.show');
+    Route::get('profile-info/edit/{id}','DashboardController@editProfile')->name('profile.edit');
+    Route::post('profile-info/update','DashboardController@updateProfile')->name('profile.update');
+
+    
     Route::get('districts','DashboardController@getDistrict')->name('district');
     Route::get('placetypes','DashboardController@getPlaceType')->name('placetype');
     

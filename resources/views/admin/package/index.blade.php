@@ -24,7 +24,7 @@
     <div class="row">  
         @forelse ($packages as $package)
             <div class="col-md-4 my-3">
-                <div class="card" style="background-color: rgb(226, 175, 80)">
+                <div class="card" style="background-color: rgb(137, 108, 184); color:whitesmoke">
                     <div class="card-header">
                         <img src="{{ asset('storage/packageImage/'.$package->package_image) }}" alt="" class="img-fluid">
                     </div>

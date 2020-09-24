@@ -10,7 +10,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{asset('assets/admin/img')}}/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="{{  Auth::user()->image != 'default.png' ?  asset('storage/profile_photo/' . Auth::user()->image ) :  asset('assets/admin/img/user2-160x160.jpg')  }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block font-weight-bold">{{ Auth::user()->name }}</a>
@@ -100,6 +100,15 @@
             </p>
           </a>
         </li>
+
+        <li class="nav-item has-treeview">
+          <a href="{{ route('admin.profile.show') }}" class="nav-link {{ Request::is('admin/profile-info*') ? 'active' : '' }}">
+            <i class="far fa-id-badge"></i>
+              <p class="ml-2">
+                  Your Profile
+            </p>
+          </a>
+        </li>
         
 
 
@@ -158,6 +167,15 @@
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                   <p class="ml-2">
                       Packages
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item has-treeview">
+              <a href="{{ route('user.profile.show') }}" class="nav-link {{ Request::is('user/profile-info*') ? 'active' : '' }}">
+                <i class="far fa-id-badge"></i>
+                  <p class="ml-2">
+                      Your Profile
                 </p>
               </a>
             </li>
