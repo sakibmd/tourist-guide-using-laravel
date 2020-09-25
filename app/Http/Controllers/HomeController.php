@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\About;
+use App\Place;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+       
     }
 
     /**
@@ -23,6 +25,22 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $places = Place::all()->take(4);
+        return view('welcome', compact('places'));
+    }
+
+    public function about()
+    {
+        if(About::all()->count() > 0){
+            $about = About::all()->first();
+            return view('about', compact('about'));
+        }
+        return view('about');
+    }
+
+    public function details($id)
+    {
+        $place = Place::find($id);
+        return view('placeDetails', compact('place'));
     }
 }

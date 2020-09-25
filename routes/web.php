@@ -11,13 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use App\Http\Controllers\HomeController;
+
+Route::get('/', 'HomeController@index')->name('welcome');
+Route::get('/about', 'HomeController@about')->name('about');
+Route::get('/place/details/{id}', 'HomeController@details')->name('place.details');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
 
 
