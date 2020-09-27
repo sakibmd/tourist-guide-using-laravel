@@ -21,18 +21,29 @@
 		<div class="row">
 			<div class="col-md-6">
 				<p class="promo-title">User Interface</p>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				<p class="text-justify"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco  et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco et dolore magna aliqua. Ut enim ad minim veniam,
 				quis nostrud exercitation ullamco. </p>
 				<a href="" class="btn btn-details">Details</a>
 			</div>
 			<div class="col-md-6 text-center">
-				<img src="{{ asset('frontend/img/13.png') }}" class="img-fluid" width="450px" style="margin-top:85px;margin-bottom: 20px; border-radius: 13px; height: 250px;">
+
 			</div>
 		</div>
 	</div>
 </section>
 {{-- end banner --}}
+
+
+
+
+
+
+
+
+
 
 {{-- start place --}}
 <div class="container places">
@@ -51,12 +62,93 @@
                         <a href="{{ route('place.details', $place->id) }}" class="btn btn-success">Details</a>
                         <hr>
                     </div>
-                </div>
-        @empty
+        </div>
+    @empty
             <h2 class="my-5 bg-info text-white text-center p-3">No Place Found. Please add some place.</h2>
-        @endforelse
+     @endforelse
+     <a href="{{ route('all.place') }}" class="btn view-more">View More Place</a>
 </div>
 {{-- end place --}}
+
+{{-- start plan --}}
+<div class="container-fluid plan">
+    <div class="row text-center">
+        <h1  class="m-auto"><strong>Plan Your Tour Easly</strong></h1>
+    </div>
+    <div class="row">
+        <p style="color: rgb(192, 174, 174)" class="lead m-auto">Quisque at tortor a libero  posuere laoreet vitae sed arcu. Curabitur consequat. </p>
+    </div>
+    <div class="row text-center">
+        <div class="col-md-4">
+            <i class="fa fa-phone-square" aria-hidden="true"></i>
+            <h3>24/7 Support</h3>
+            <p>Suscipit invenire petentium per in. Ne magna assueverit vel. Ne magna assueverit vel. Vix movet perfecto facilisis in, ius ad maiorum corrumpit, his esse docendi in.</p>
+        </div>
+
+        <div class="col-md-4">
+            <i class="fa fa-cog" aria-hidden="true"></i>
+            <h3>Room and food included</h3>
+            <p>Suscipit invenire petentium per in. Ne magna assueverit vel. Ne magna assueverit vel.Vix movet perfecto facilisis in, ius ad maiorum corrumpit, his esse docendi in.</p>
+        </div>
+
+        <div class="col-md-4">
+            <i class="fa fa-sitemap" aria-hidden="true"></i>
+            <h3>Everything organized</h3>
+            <p>Suscipit invenire petentium per in. Ne magna assueverit vel. Ne magna assueverit vel. Vix movet perfecto facilisis in, ius ad maiorum corrumpit, his esse docendi in.</p>
+        </div>
+    </div>
+</div>
+{{-- end plan --}}
+
+
+
+{{-- start packages --}}
+<div class="container places">
+    <div class="row justify-content-center">
+        <h1><strong>Our All Amazing Packages</strong></h1>
+    </div>
+    <div class="row my-5">
+        @forelse ($packages as $package)
+                <div class="col-md-4">
+                    <div class="card mx-2 my-3" style="border: 2px solid black">
+                        <div class="card-header">
+                            <img src="{{ asset('storage/packageImage/'.$package->package_image) }}" alt="" class="img-fluid p-0 m-0">
+                        </div>
+                        <div class="card-body package-details">
+                            <p>Package Name: {{ $package->name }}</p>
+                            <p>Price: {{ $package->price }}</p>
+                            <p>People: {{ $package->people }}</p>
+                        </div>
+                        <div class="card-footer bg-dark" >
+                            <div class="d-flex justify-content-between">
+                                <div>
+                                    <a href="{{ route('user.package.show', $package->id) }}" class="btn btn-info">Details</a>
+                                </div>
+                                <div>
+                                    <a href="" class="btn btn-success">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+    
+                    </div>    
+                </div> 
+                @empty
+                    <h2 class="my-5 bg-info text-white text-center p-3">No Package Found. Please add some place.</h2>
+                @endforelse
+    </div>    
+    
+    <div class="row">
+        <div class="d-flex justify-content-center m-auto">
+            <div>
+                <a href="{{ route('all.package') }}" class="btn view-more">View More Package</a>
+            </div>
+        </div>
+    </div>
+</div>
+{{-- end packages --}}
+
+
+
 
 
 @endsection

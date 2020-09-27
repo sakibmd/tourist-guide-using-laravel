@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\About;
+use App\Package;
 use App\Place;
 use Illuminate\Http\Request;
 
@@ -26,7 +27,9 @@ class HomeController extends Controller
     public function index()
     {
         $places = Place::all()->take(4);
-        return view('welcome', compact('places'));
+        $packages = Package::all()->take(3);
+
+        return view('welcome', compact('places', 'packages'));
     }
 
     public function about()
@@ -42,5 +45,16 @@ class HomeController extends Controller
     {
         $place = Place::find($id);
         return view('placeDetails', compact('place'));
+    }
+
+    public function allPlace(){
+        $places = Place::latest()->get();
+        return view('allPlaces', compact('places'));
+    }
+
+
+    public function allPackage(){
+        $packages = Package::latest()->get();
+        return view('allPackages', compact('packages'));
     }
 }

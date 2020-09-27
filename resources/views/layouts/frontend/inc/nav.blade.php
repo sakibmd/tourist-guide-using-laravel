@@ -1,6 +1,6 @@
 <section id="nav-bar">
     <nav class="navbar navbar-expand-lg navbar-light fixed-top">
-    <a class="navbar-brand" href="#top">Tourist Guied</a>
+    <a class="navbar-brand" href="{{ route('welcome') }}">Tourist Guied</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon" style="background-color:  #fff;"></span>
     </button>
@@ -15,10 +15,10 @@
           <a class="nav-link" href="{{ route('about') }}">About Us</a>
         </li>
           <li class="nav-item">
-          <a class="nav-link" href="">Places</a>
+          <a class="nav-link" href="{{ route('all.place') }}">Places</a>
         </li>
          <li class="nav-item">
-          <a class="nav-link" href="">Packages</a>
+          <a class="nav-link" href="{{ route('all.package') }}">Packages</a>
         </li>
          <li class="nav-item">
           <a class="nav-link" href="">Gallery</a>

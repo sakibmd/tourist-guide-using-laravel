@@ -16,6 +16,8 @@ use App\Http\Controllers\HomeController;
 Route::get('/', 'HomeController@index')->name('welcome');
 Route::get('/about', 'HomeController@about')->name('about');
 Route::get('/place/details/{id}', 'HomeController@details')->name('place.details');
+Route::get('/place-list', 'HomeController@allPlace')->name('all.place');
+Route::get('/package-list', 'HomeController@allPackage')->name('all.package');
 
 Auth::routes();
 

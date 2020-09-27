@@ -23,21 +23,25 @@
     <div class="row">  
         @forelse ($packages as $package)
             <div class="col-md-4 my-3">
-                <div class="card" style="background-color: rgb(226, 175, 80)">
+                <div class="card mx-2 my-3" style="border: 2px solid black">
                     <div class="card-header">
-                        <img src="{{ asset('storage/packageImage/'.$package->package_image) }}" alt="" class="img-fluid">
+                        <img src="{{ asset('storage/packageImage/'.$package->package_image) }}" alt="" class="img-fluid p-0 m-0">
                     </div>
                     <div class="card-body package-details">
                         <p>Package Name: {{ $package->name }}</p>
                         <p>Price: {{ $package->price }}</p>
                         <p>People: {{ $package->people }}</p>
-                        <p>
-                            <a href="{{ route('user.package.show', $package->id) }}" class="btn btn-info">Details</a>
-                        </p>
                     </div>
-
-
-
+                    <div class="card-footer bg-dark" >
+                        <div class="d-flex justify-content-between">
+                            <div>
+                                <a href="{{ route('user.package.show', $package->id) }}" class="btn btn-info">Details</a>
+                            </div>
+                            <div>
+                                <a href="" class="btn btn-success">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
