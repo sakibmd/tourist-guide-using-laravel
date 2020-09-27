@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\About;
+use App\District;
 use App\Package;
 use App\Place;
+use App\Placetype;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -28,8 +30,21 @@ class HomeController extends Controller
     {
         $places = Place::all()->take(4);
         $packages = Package::all()->take(3);
+        $districts = District::latest()->get();
 
-        return view('welcome', compact('places', 'packages'));
+        return view('welcome', compact('places', 'packages', 'districts'));
+    }
+
+    public function districtWisePlace($id){
+        $places = Place::where('district_id', $id)->get();
+        $district = District::find($id);
+        return view('showDistrictWise', compact('places', 'district'));
+    }
+
+    public function placetypeWisePlace($id){
+        $places = Place::where('placetype_id', $id)->get();
+        $placetype = Placetype::find($id);
+        return view('showPlacetypetWise', compact('places', 'placetype'));
     }
 
     public function about()
@@ -41,20 +56,26 @@ class HomeController extends Controller
         return view('about');
     }
 
-    public function details($id)
+    public function placeDdetails($id)
     {
         $place = Place::find($id);
         return view('placeDetails', compact('place'));
     }
 
+    public function packageDetails($id)
+    {
+        $package = Package::find($id);
+        return view('packageDetails', compact('package'));
+    }
+
     public function allPlace(){
-        $places = Place::latest()->get();
+        $places = Place::latest()->paginate(12);
         return view('allPlaces', compact('places'));
     }
 
 
     public function allPackage(){
-        $packages = Package::latest()->get();
+        $packages = Package::latest()->paginate(12);
         return view('allPackages', compact('packages'));
     }
 }

@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.frontend.master')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
+<div class="container-fluid login-register-image">
+    <div class="row justify-content-center" style="padding-top: 180px; padding-bottom: 105px;">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="card-header bg-dark text-white"><strong>{{ __('Login') }}</strong></div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">

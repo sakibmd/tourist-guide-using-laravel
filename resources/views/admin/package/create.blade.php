@@ -57,9 +57,9 @@
 
                             <div class="form-group">
                                 <label>Choose Places</label>
-                                <select class="form-control select-tags" name="places[]" multiple>
+                                <select class="form-control select-tags" data-placeholder="Choose places" name="places[]" multiple>
                                     @foreach ($places as $place)
-                                        <option value="{{ $place->id }}" style="color: rgb(197, 26, 26)">
+                                        <option value="{{ $place->id }}">
                                             {{ $place->name }}
                                         </option>
                                     @endforeach
@@ -103,17 +103,17 @@
  @section('scripts')
  <script src="{{ asset('js/trix.js') }}"></script>
  <script src="{{ asset('js/jquery-1.12.4.min.js') }}"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+ <script src="{{ asset('js/chosen.jquery.min.js') }}"></script>
  <script>
      $(document).ready(function() {
-         $('.select-tags').select2();
+         $('.select-tags').chosen();
      })
  </script>
  @endsection
  
  @section('css')
  <link href="{{ asset('css/trix.css') }}" rel="stylesheet">
- <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+ <link href="{{ asset('css/chosen.min.css') }}" rel="stylesheet">
  @endsection
 
 

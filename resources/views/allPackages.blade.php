@@ -44,6 +44,16 @@
                     <h2 class="my-5 bg-info text-white text-center p-3">No Package Found. Please add some place.</h2>
                 @endforelse
     </div>
+    <div class="d-flex justify-content-between">
+        <div>
+            <a href="{{ route('welcome') }}" class="btn btn-danger my-5">Back to home</a>
+        </div>
+        <div class="my-5">
+            {{ $packages->links() }}
+        </div>
+    </div>
+
+
 </div>
 
 

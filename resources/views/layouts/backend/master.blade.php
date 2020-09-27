@@ -42,6 +42,8 @@
 <script src="{{asset('backend/app.js')}}"></script>
 <script src="{{asset('assets/admin/js/custom.js')}}"></script>
 
+
+
 @yield('scripts')
 
 </body>

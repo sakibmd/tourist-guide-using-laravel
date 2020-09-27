@@ -51,6 +51,7 @@ class PackageController extends Controller
             'people' => 'required|numeric|integer',
             'package_image' => 'required|mimes:jpeg,png,jpg',
             'description' => 'required',
+            'places' => 'required',
         ]);
 
        // Get Form Image
@@ -129,6 +130,7 @@ class PackageController extends Controller
             'people' => 'required|numeric|integer',
             'package_image' => 'mimes:jpeg,png,jpg',
             'description' => 'required',
+            'places' => 'required',
         ]);
 
         $package = Package::findOrFail($id);

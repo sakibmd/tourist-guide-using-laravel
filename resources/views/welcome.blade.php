@@ -21,12 +21,12 @@
 		<div class="row">
 			<div class="col-md-6">
 				<p class="promo-title">User Interface</p>
-				<p class="text-justify"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				<p class="text-justify lead"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 				quis nostrud exercitation ullamco  et dolore magna aliqua. Ut enim ad minim veniam,
 				quis nostrud exercitation ullamco et dolore magna aliqua. Ut enim ad minim veniam,
 				quis nostrud exercitation ullamco. </p>
-				<a href="" class="btn btn-details">Details</a>
+				<a href="{{ route('about') }}" class="btn btn-info py-2 px-3"><strong>Details</strong></a>
 			</div>
 			<div class="col-md-6 text-center">
 
@@ -35,15 +35,6 @@
 	</div>
 </section>
 {{-- end banner --}}
-
-
-
-
-
-
-
-
-
 
 {{-- start place --}}
 <div class="container places">
@@ -100,8 +91,6 @@
 </div>
 {{-- end plan --}}
 
-
-
 {{-- start packages --}}
 <div class="container places">
     <div class="row justify-content-center">
@@ -122,7 +111,7 @@
                         <div class="card-footer bg-dark" >
                             <div class="d-flex justify-content-between">
                                 <div>
-                                    <a href="{{ route('user.package.show', $package->id) }}" class="btn btn-info">Details</a>
+                                    <a href="{{ route('package.details', $package->id) }}" class="btn btn-info">Details</a>
                                 </div>
                                 <div>
                                     <a href="" class="btn btn-success">Book Now</a>
@@ -147,7 +136,24 @@
 </div>
 {{-- end packages --}}
 
-
+{{-- start district --}}
+<div class="container-fluid district-show">
+    <div class="row">
+        <h1 class="m-auto"><strong>Show District Wise Amazing Places</strong></h1>
+    </div>
+    <div class="row px-3 justify-content-center my-5">
+        @forelse ($districts as $district)
+            <div class="col-sm-2">
+                <a href="{{ route('district.wise.place', $district->id) }}" class="btn btn-district">
+                    <strong>{{ $district->name }} ({{ $district->places->count() }})</strong>
+                </a>
+            </div>
+        @empty
+            <h2 class="m-auto p-3 text-white bg-dark">No Districts Found Right Now. Please Add Some Areas</h2>
+        @endforelse
+    </div>
+</div>
+{{-- end district --}}
 
 
 

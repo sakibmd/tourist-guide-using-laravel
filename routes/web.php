@@ -15,9 +15,12 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', 'HomeController@index')->name('welcome');
 Route::get('/about', 'HomeController@about')->name('about');
-Route::get('/place/details/{id}', 'HomeController@details')->name('place.details');
+Route::get('/place/details/{id}', 'HomeController@placeDdetails')->name('place.details');
+Route::get('/package/details/{id}', 'HomeController@packageDetails')->name('package.details');
 Route::get('/place-list', 'HomeController@allPlace')->name('all.place');
 Route::get('/package-list', 'HomeController@allPackage')->name('all.package');
+Route::get('/district/{id}', 'HomeController@districtWisePlace')->name('district.wise.place');
+Route::get('/placetype/{id}', 'HomeController@placetypeWisePlace')->name('placetype.wise.place');
 
 Auth::routes();
 
@@ -75,4 +78,11 @@ Route::group([
 
     Route::get('packages','DashboardController@getPackage')->name('package');
     Route::get('packages/{id}','DashboardController@getPackageDetails')->name('package.show');
+});
+
+
+
+View::composer('layouts.frontend.inc.footer', function($view){
+    $placetypes = App\Placetype::all();
+    $view->with('placetypes', $placetypes);
 });

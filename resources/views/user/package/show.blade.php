@@ -27,6 +27,16 @@
                     <td>{{ $package->added_by }}</td>
                 </tr>
                 <tr>
+                    <th>Places</th>
+                    <td>
+                        @foreach ($package->places as $place)
+                            <span style="background: orange; color:black" class="px-3 py-2">
+                                <strong>{{ $place->name }}</strong>
+                            </span>
+                        @endforeach
+                    </td>
+                </tr>
+                <tr>
                     <th>Package Price</th>
                     <td>{{ $package->price }}</td>
                 </tr>
@@ -40,7 +50,7 @@
                 </tr>
             </table>
             <br>
-            <h3 style="color: whitesmoke; background-color: black; padding:12px;">Description & rules: </h3>
+            <h3 class="my-5" style="color: whitesmoke; background-color: black; padding:12px;">Description & rules: </h3>
            <div style="text-align: justify">  {!! $package->description !!}</div>
         </div>
     </div>

@@ -3,6 +3,19 @@
 @import url('https://fonts.googleapis.com/css?family=Akronim|Anton|Indie+Flower|Merriweather|Modak');
 
 
+.login-register-image{
+    background-image: url('../img/photo-1488342994276-7c3bc0742042.jpg');
+    height: 100%;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+
+
+
+
+
+
 /* start navbar */
 #nav-bar .navbar{
   background: linear-gradient(to right top, #00112a, #0a0f2a, #130c29, #1b0826, #210523);
@@ -75,18 +88,7 @@
 	padding: 0px;
 	margin: 0px;
 }
-.btn-details{
-  background-color: black;
-  color: whitesmoke;
-  padding: 8px 20px;
-}
 
-
-.btn-details:hover{
-  background-color: rgb(48, 30, 30);
-  color: whitesmoke;
-  padding: 8px 20px;
-}
 
 /*end banner Section*/
 
@@ -114,6 +116,9 @@
 }
 /* end plan section */
 
+
+
+/* start editing view more button */
 .view-more{
   background-color: rgb(47, 47, 68);
   color: whitesmoke;
@@ -124,6 +129,7 @@
 .view-more:hover{
   color: grey;
 }
+/* end editing view more button */
 
 
 
@@ -131,11 +137,26 @@
   margin-top: 140px;
 }
 
+.district-show{
+  background-image: url('../img/blue-sky-clear-sky-cold-fog-346529-1024x683.jpg');
+  color: whitesmoke;
+  height: 100%;
+  background-attachment: fixed;
+  background-size: cover;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+.district-show .btn-district{
+  background-color: whitesmoke;
+  color: #10101e;
+  padding: 7px 16px;
+  border-radius: 30px;
+}
+
 
 
 /* Start footer */
 #footer{
-  margin-top: 100px;
   padding-top: 75px; 
   background: linear-gradient(to right top, #09030f, #0c0613, #0e0a17, #0f0d1b, #10101e)!important;
   

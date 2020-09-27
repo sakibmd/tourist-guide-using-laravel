@@ -1,6 +1,6 @@
 @extends('layouts.frontend.master')
 @section('title')
-    Tourist Guide - All Places
+    Tourist Guide - {{ $district->name }}
 @endsection
 
 @section('css')
@@ -19,7 +19,7 @@
 
 <div class="container all-places">
     <div class="row justify-content-center py-5">
-        <h1><strong>All Places</strong></h1>
+        <h1><strong>Amazing Places in "{{ $district->name }}"</strong></h1>
     </div>
     <div class="row">
         @forelse ($places as $place)
@@ -37,18 +37,11 @@
                 </div>
             </div> 
         @empty
-            <h2 class="my-5 bg-info text-white text-center p-3">No Place Found. Please add some place.</h2>
+            <h2 class="my-5 bg-info text-white text-center p-3">No Place Found In This District Right Now.</h2>
         @endforelse
     </div>
-    
-    
-    <div class="d-flex justify-content-between">
-        <div>
-            <a href="{{ route('welcome') }}" class="btn btn-danger my-5">Back to home</a>
-        </div>
-        <div class="my-5">
-            {{ $places->links() }}
-        </div>
+    <div class="row">
+        <a href="{{ route('welcome') }}" class="btn btn-danger my-5">Back to home</a>
     </div>
 </div>
 
