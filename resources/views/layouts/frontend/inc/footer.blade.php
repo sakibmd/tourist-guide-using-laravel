@@ -3,9 +3,11 @@
       <div class="row">
         <div class="col-md-4">
           <h2 class="head">Types Of Places</h2>
-          @foreach ($placetypes as $placetype)
+          @forelse ($placetypes as $placetype)
             <p><i class="fas fa-check"> </i>  <a href="{{ route('placetype.wise.place', $placetype->id) }}">{{ $placetype->name }}</a></p>
-          @endforeach
+          @empty 
+            <p class="text-center m-auto p-3 text-white bg-dark"><strong>No Placetype found right now</strong></p>
+          @endforelse
         </div>
         <div class="col-md-4">
           <h2 class="head">Services</h2>

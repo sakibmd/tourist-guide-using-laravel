@@ -122,7 +122,7 @@
                     </div>    
                 </div> 
                 @empty
-                    <h2 class="my-5 bg-info text-white text-center p-3">No Package Found. Please add some place.</h2>
+                    <h2 class="m-auto my-5 bg-info text-white text-center p-3">No Package Found. Please add some place.</h2>
                 @endforelse
     </div>    
     
@@ -137,14 +137,14 @@
 {{-- end packages --}}
 
 {{-- start district --}}
-<div class="container-fluid district-show">
+<div class="container-fluid district-show text-center">
     <div class="row">
-        <h1 class="m-auto"><strong>Show District Wise Amazing Places</strong></h1>
+        <h1 class="m-auto "><strong>Show District Wise Amazing Places</strong></h1>
     </div>
     <div class="row px-3 justify-content-center my-5">
         @forelse ($districts as $district)
             <div class="col-sm-2">
-                <a href="{{ route('district.wise.place', $district->id) }}" class="btn btn-district">
+                <a href="{{ route('district.wise.place', $district->id) }}" class="btn btn-district my-3">
                     <strong>{{ $district->name }} ({{ $district->places->count() }})</strong>
                 </a>
             </div>

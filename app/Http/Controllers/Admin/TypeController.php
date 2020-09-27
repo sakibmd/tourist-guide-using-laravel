@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Place;
 use Illuminate\Http\Request;
 use App\Placetype;
 
@@ -16,7 +17,8 @@ class TypeController extends Controller
     public function index()
     {
         $types = Placetype::latest()->paginate(8);
-        return view('admin.placeType.index',compact('types'));
+        $typescount = Placetype::all()->count();
+        return view('admin.placeType.index',compact('types', 'typescount'));
     }
 
     /**
@@ -99,8 +101,12 @@ class TypeController extends Controller
      */
     public function destroy(Placetype $type)
     {
-         $type->delete();
 
-      return redirect(route('admin.type.index'))->with('success', 'Place Type Deleted Successfully');
+        if(Place::where('placetype_id', $type->id)->count() > 0 ){
+            session()->flash('danger', 'Place type do not removed, because it has some places');
+            return redirect()->back();
+        }
+        //$type->delete();
+        return redirect(route('admin.type.index'))->with('success', 'Place Type Deleted Successfully');
     }
 }

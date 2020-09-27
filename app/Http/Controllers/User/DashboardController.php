@@ -28,12 +28,14 @@ class DashboardController extends Controller
 
     public function getDistrict(){
         $districts = District::latest()->paginate(8);
-        return view('user.district.index',compact('districts'));
+        $districtcount = District::all()->count();
+        return view('user.district.index',compact('districts', 'districtcount'));
     }
 
     public function getPlaceType(){
         $types = Placetype::latest()->paginate(8);
-        return view('user.placeType.index',compact('types'));
+        $typescount = Placetype::all()->count();
+        return view('user.placeType.index',compact('types', 'typescount'));
     }
 
     public function getPlaces(){

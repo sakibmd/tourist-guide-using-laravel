@@ -11,7 +11,7 @@
 
                 <div class="card mt-5">
                     <div class="card-header bg-dark">
-                      <h3 class="card-title float-left"><strong>Place Types ({{ $types->count() }})</strong></h3>
+                      <h3 class="card-title float-left"><strong>Place Types ({{ $typescount }})</strong></h3>
                     </div>
                     <!-- /.card-header -->
                     @if ($types->count() > 0)

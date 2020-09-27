@@ -13,7 +13,7 @@
 
                 <div class="card mt-5">
                     <div class="card-header  bg-dark">
-                      <h3 class="card-title float-left p-0 m-0"><strong>Our All District ({{ $districts->count() }})</strong></h3>
+                      <h3 class="card-title float-left p-0 m-0"><strong>Our All District ({{ $districtcount }})</strong></h3>
                     </div>
                     <!-- card-header -->
                     @if ($districts->count() > 0)

@@ -16,7 +16,8 @@ class DistrictController extends Controller
     public function index()
     {
         $districts = District::latest()->paginate(8);
-        return view('admin.district.index',compact('districts'));
+        $districtcount = District::all()->count();
+        return view('admin.district.index',compact('districts', 'districtcount'));
     }
 
     /**

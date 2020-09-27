@@ -37,7 +37,7 @@
                 </div>
             </div> 
         @empty
-            <h2 class="my-5 bg-info text-white text-center p-3">No Place Found In This District Right Now.</h2>
+            <h2 class="m-auto bg-info text-white text-center p-3">No Place Found In This District Right Now.</h2>
         @endforelse
     </div>
     <div class="row">
