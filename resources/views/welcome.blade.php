@@ -156,6 +156,36 @@
 {{-- end district --}}
 
 
+{{-- start searching --}}
+<div class="container-fluid search-section text-center">
+    <div class="row">
+        <h1 class="m-auto "><strong>You Can Search Our For Our Amazing Places</strong></h1>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-9">
+            <form action="{{ route('search') }}" method="GET">
+                @csrf
+                <div class="row justify-content-center">
+                    @if(session('search'))
+                        <div class="alert alert-danger mt-3" id="alert" roles="alert">
+                            {{ session('search') }} 
+                        </div> 
+                    @endif 
+                </div> 
+                <div class="d-flex flex-row  justify-content-center py-5">
+                    <div class="form-group" style="width: 60%">
+                        <input type="text" placeholder="search a place" class="form-control" name="query">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success float-left ml-1">Search</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{{-- End Search --}}
+
 
 @endsection
 

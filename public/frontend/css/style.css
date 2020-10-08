@@ -133,6 +133,19 @@
 
 
 
+/* search section */
+
+.search-section{
+  padding: 80px 20px;
+  background-image: url('../img/photo-1488342994276-7c3bc0742042.jpg');
+  color: whitesmoke;
+  height: 100%;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+/* end search section */
+
 .all-places{
   margin-top: 140px;
 }

@@ -78,4 +78,10 @@ class HomeController extends Controller
         $packages = Package::latest()->paginate(12);
         return view('allPackages', compact('packages'));
     }
+
+    public function search(Request $request){
+        $query = $request->input('query');
+        $places = Place::where('name','LIKE',"%$query%")->get();
+        return view('searchResult', compact('places'));
+    }
 }

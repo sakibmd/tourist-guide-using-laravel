@@ -15,6 +15,7 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', 'HomeController@index')->name('welcome');
 Route::get('/about', 'HomeController@about')->name('about');
+Route::get('/search', 'HomeController@search')->name('search');
 Route::get('/place/details/{id}', 'HomeController@placeDdetails')->name('place.details');
 Route::get('/package/details/{id}', 'HomeController@packageDetails')->name('package.details');
 Route::get('/place-list', 'HomeController@allPlace')->name('all.place');
