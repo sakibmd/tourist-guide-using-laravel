@@ -34,7 +34,11 @@
                                     <a href="{{ route('user.package.show', $package->id) }}" class="btn btn-info">Details</a>
                                 </div>
                                 <div>
-                                    <a href="" class="btn btn-success">Book Now</a>
+                                    @auth
+                                        @if (Auth::user()->role_id == 2)
+                                            <a href="{{ route('package.booking', $package->id) }}" class="btn btn-success">Book Now</a>
+                                        @endif
+                                    @endauth
                                 </div>
                             </div>
                         </div>

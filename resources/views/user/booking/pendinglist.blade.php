@@ -1,6 +1,6 @@
 @extends('layouts.backend.master')
 @section('title')
-    Tourist Guide - Pending Booking
+    Tourist Guide - Pending Request
 @endsection
 @section('content')
 
@@ -13,7 +13,7 @@
 
                 <div class="card mt-5">
                     <div class="card-header  bg-dark">
-                      <h3 class="card-title float-left p-0 m-0"><strong>Manage Pending Booking List ({{ $pendinglists->count() }})</strong></h3>
+                      <h3 class="card-title float-left p-0 m-0"><strong>Booking Request ({{ $pendinglists->count() }})</strong></h3>
                     </div>
                     <!-- card-header -->
                     @if ($pendinglists->count() > 0)
@@ -25,6 +25,7 @@
                           <th>Package</th>
                           <th>Price</th>
                           <th>Date</th>
+                          <th>Day</th>
                           <th>Guide</th>
                           <th>Tourist Name</th>
                           <th>Tourist Contact</th>
@@ -39,6 +40,7 @@
                           </td>
                           <td>{{ $list->price }}</td>
                           <td>{{ $list->date }}</td>
+                          <td>{{ $list->day }}</td>
                           <td>
                               @isset($list->guide->name)
                                  {{ $list->guide->name }}
@@ -51,9 +53,7 @@
                           <td>{{ $list->tourist->contact }}</td>
                           <td> 
                             
-                            <button type="submit" onclick="handleApprove( {{ $list->id }}) " class="btn btn-info">Approve</button>
-
-                             <button type="submit" onclick="handleDelete( {{ $list->id }}) " class="btn btn-danger">Remove</button>
+                             <button type="submit" onclick="cancelRequest( {{ $list->id }}) " class="btn btn-danger">Cancel Request</button>
                           </td>
                         </tr>
                         @endforeach    
@@ -74,11 +74,11 @@
                                   </button>
                                   </div>
                                   <div class="modal-body">
-                                      <div class="text-center">Are you sure to remove this pending request?</div>
+                                      <div class="text-center">Are you sure to cancel the booking request?</div>
                                   </div>
                                   <div class="modal-footer">
                                   <button type="button" class="btn btn-success" data-dismiss="modal">No, Go Back</button>
-                                  <button type="submit" class="btn btn-danger">Yes, Remove</button>
+                                  <button type="submit" class="btn btn-danger">Yes, Cancel</button>
                                   </div>
                               </div>
                       </form>
@@ -86,29 +86,6 @@
               </div>
 
 
-                <!-- Modal -->
-                <div class="modal fade" id="approveRequestModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <form action="" id="approveRequestForm" method="POST">
-                            @csrf 
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Approve Booking Request</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="text-center">Are you sure to approve this booking request?</div>
-                                    </div>
-                                    <div class="modal-footer">
-                                    <button type="button" class="btn btn-success" data-dismiss="modal">No, Go Back</button>
-                                    <button type="submit" class="btn btn-danger">Yes, Approve</button>
-                                    </div>
-                                </div>
-                        </form>
-                    </div>
-                </div>
                       
                     </div>
                     @else 
@@ -126,15 +103,9 @@
  @section('scripts')
    <script>
 
-        function handleApprove(id){
-          var form = document.getElementById('approveRequestForm')
-          form.action = 'approve/' + id 
-          $('#approveRequestModal').modal('show')
-        }
-
-        function handleDelete(id){
+        function cancelRequest(id){
           var form = document.getElementById('removeRequestForm')
-          form.action = 'remove/' + id 
+          form.action = 'cancel/' + id 
           $('#removeRequestModal').modal('show')
         }
        

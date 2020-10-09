@@ -1,6 +1,6 @@
 @extends('layouts.backend.master')
 @section('title')
-    Tourist Guide - Pending Booking
+    Tourist Guide - Running Package
 @endsection
 @section('content')
 
@@ -13,10 +13,10 @@
 
                 <div class="card mt-5">
                     <div class="card-header  bg-dark">
-                      <h3 class="card-title float-left p-0 m-0"><strong>Manage Pending Booking List ({{ $pendinglists->count() }})</strong></h3>
+                      <h3 class="card-title float-left p-0 m-0"><strong>Running Package List ({{ $runningLists->count() }})</strong></h3>
                     </div>
                     <!-- card-header -->
-                    @if ($pendinglists->count() > 0)
+                    @if ($runningLists->count() > 0)
                     <div class="card-body">
                     <div class="table-responsive">
                       <table id="dataTableId" class="table table-bordered table-striped">
@@ -32,11 +32,9 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach ($pendinglists as $list)
+                        @foreach ($runningLists as $list)
                         <tr>
-                          <td>
-                            {{ $list->package_name }}
-                          </td>
+                          <td>{{ $list->package_name }}</td>
                           <td>{{ $list->price }}</td>
                           <td>{{ $list->date }}</td>
                           <td>
@@ -51,9 +49,8 @@
                           <td>{{ $list->tourist->contact }}</td>
                           <td> 
                             
-                            <button type="submit" onclick="handleApprove( {{ $list->id }}) " class="btn btn-info">Approve</button>
+                            <button type="submit" onclick="handleTourComplete( {{ $list->id }}) " class="btn btn-success btn-sm">Complete</button>
 
-                             <button type="submit" onclick="handleDelete( {{ $list->id }}) " class="btn btn-danger">Remove</button>
                           </td>
                         </tr>
                         @endforeach    
@@ -62,23 +59,23 @@
                     </div>
 
                 <!-- Modal -->
-                <div class="modal fade" id="removeRequestModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="completeTourModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
-                      <form action="" id="removeRequestForm" method="POST">
+                      <form action="" id="completeTourForm" method="POST">
                           @csrf 
                               <div class="modal-content">
                                   <div class="modal-header">
-                                  <h5 class="modal-title" id="exampleModalLabel">Remove Request</h5>
+                                  <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                       <span aria-hidden="true">&times;</span>
                                   </button>
                                   </div>
                                   <div class="modal-body">
-                                      <div class="text-center">Are you sure to remove this pending request?</div>
+                                      <div class="text-center">Are you sure to make this tour complete?</div>
                                   </div>
                                   <div class="modal-footer">
                                   <button type="button" class="btn btn-success" data-dismiss="modal">No, Go Back</button>
-                                  <button type="submit" class="btn btn-danger">Yes, Remove</button>
+                                  <button type="submit" class="btn btn-danger">Yes, Complete</button>
                                   </div>
                               </div>
                       </form>
@@ -86,33 +83,11 @@
               </div>
 
 
-                <!-- Modal -->
-                <div class="modal fade" id="approveRequestModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <form action="" id="approveRequestForm" method="POST">
-                            @csrf 
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Approve Booking Request</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="text-center">Are you sure to approve this booking request?</div>
-                                    </div>
-                                    <div class="modal-footer">
-                                    <button type="button" class="btn btn-success" data-dismiss="modal">No, Go Back</button>
-                                    <button type="submit" class="btn btn-danger">Yes, Approve</button>
-                                    </div>
-                                </div>
-                        </form>
-                    </div>
-                </div>
+              
                       
                     </div>
                     @else 
-                      <h2 class="text-center text-info font-weight-bold m-3">No Pending Request Found</h2>
+                      <h2 class="text-center text-info font-weight-bold m-3">0 Running tour right now</h2>
                     @endif
 
                     <!-- /.card-body -->
@@ -126,17 +101,13 @@
  @section('scripts')
    <script>
 
-        function handleApprove(id){
-          var form = document.getElementById('approveRequestForm')
-          form.action = 'approve/' + id 
-          $('#approveRequestModal').modal('show')
+        function handleTourComplete(id){
+          var form = document.getElementById('completeTourForm')
+          form.action = 'package/complete/' + id 
+          $('#completeTourModal').modal('show')
         }
 
-        function handleDelete(id){
-          var form = document.getElementById('removeRequestForm')
-          form.action = 'remove/' + id 
-          $('#removeRequestModal').modal('show')
-        }
+       
        
 
        

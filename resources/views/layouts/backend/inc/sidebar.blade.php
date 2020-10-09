@@ -115,7 +115,27 @@
           <a href="{{ route('admin.pending.booking') }}" class="nav-link {{ Request::is('admin/booking-request/list') ? 'active' : '' }}">
             <i class="far fa-id-badge"></i>
               <p class="ml-2">
-                  Pending Booking
+                  Pending Request
+            </p>
+          </a>
+        </li>
+
+
+        <li class="nav-item has-treeview">
+          <a href="{{ route('admin.package.running') }}" class="nav-link {{ Request::is('admin/running/package*') ? 'active' : '' }}">
+            <i class="far fa-id-badge"></i>
+              <p class="ml-2">
+                  Running Package
+            </p>
+          </a>
+        </li>
+
+
+        <li class="nav-item has-treeview">
+          <a href="{{ route('admin.tour.history') }}" class="nav-link {{ Request::is('admin/tour-history/list') ? 'active' : '' }}">
+            <i class="far fa-id-badge"></i>
+              <p class="ml-2">
+                  Tour History
             </p>
           </a>
         </li>
@@ -186,6 +206,25 @@
                 <i class="far fa-id-badge"></i>
                   <p class="ml-2">
                       Your Profile
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item has-treeview">
+              <a href="{{ route('user.pending.booking') }}" class="nav-link {{ Request::is('user/booking-request/list') ? 'active' : '' }}">
+                <i class="far fa-id-badge"></i>
+                  <p class="ml-2">
+                      Pending Request
+                </p>
+              </a>
+            </li>
+    
+
+            <li class="nav-item has-treeview">
+              <a href="{{ route('user.tour.history') }}" class="nav-link {{ Request::is('user/tour-history/list') ? 'active' : '' }}">
+                <i class="far fa-id-badge"></i>
+                  <p class="ml-2">
+                      Tour History
                 </p>
               </a>
             </li>

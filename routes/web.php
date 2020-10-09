@@ -60,6 +60,9 @@ Route::group([
     Route::get('booking-request/list', 'BookingController@pendingBookingList')->name('pending.booking');
     Route::post('booking-request/approve/{id}', 'BookingController@bookingApprove')->name('booking.approve');
     Route::post('booking-request/remove/{id}', 'BookingController@bookingRemoveByAdmin')->name('booking.remove');
+    Route::get('running/packages/', 'BookingController@runningPackage')->name('package.running');
+    Route::post('running/package/complete/{id}', 'BookingController@runningPackageComplete')->name('package.running.complete');
+    Route::get('tour-history/list', 'BookingController@tourHistory')->name('tour.history');
 });
 
 Route::group([ 
@@ -88,6 +91,11 @@ Route::group([
 
     Route::get('packages','DashboardController@getPackage')->name('package');
     Route::get('packages/{id}','DashboardController@getPackageDetails')->name('package.show');
+
+
+    Route::get('tour-history/list', 'BookingController@tourHistory')->name('tour.history');
+    Route::get('booking-request/list', 'BookingController@pendingBookingList')->name('pending.booking');
+    Route::post('booking-request/cancel/{id}', 'BookingController@canceLBookingRequest')->name('booking.cancel');
 });
 
 
