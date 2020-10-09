@@ -25,7 +25,8 @@
           @if (Request::is('admin*'))
           <li class="nav-item has-treeview active">
             <a href="{{ route('admin.dashboard') }}" class="nav-link {{ Request::is('admin/dashboard') ? 'active' : '' }}">
-              <i class="fas fa-border-style"></i>
+              <i class="fas fa-tachometer-alt"></i>
+
               <p class="ml-2">
                 Dashboard
               </p>
@@ -109,6 +110,15 @@
             </p>
           </a>
         </li>
+
+        <li class="nav-item has-treeview">
+          <a href="{{ route('admin.pending.booking') }}" class="nav-link {{ Request::is('admin/booking-request/list') ? 'active' : '' }}">
+            <i class="far fa-id-badge"></i>
+              <p class="ml-2">
+                  Pending Booking
+            </p>
+          </a>
+        </li>
         
 
 
@@ -118,7 +128,7 @@
           @if (Request::is('user*'))
             <li class="nav-item has-treeview">
               <a href="{{ route('user.dashboard') }}" class="nav-link {{ Request::is('user/dashboard') ? 'active' : '' }}">
-                <i class="fas fa-border-style"></i>
+                <i class="fas fa-tachometer-alt"></i>
                 <p class="pl-2">
                   Dashboard
                  
@@ -176,6 +186,15 @@
                 <i class="far fa-id-badge"></i>
                   <p class="ml-2">
                       Your Profile
+                </p>
+              </a>
+            </li>
+
+            <li class="nav-item has-treeview">
+              <a href="{{ route('welcome') }}" class="nav-link">
+                <i class="far fa-id-badge"></i>
+                  <p class="ml-2">
+                      Home Page
                 </p>
               </a>
             </li>

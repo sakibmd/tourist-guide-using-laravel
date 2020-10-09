@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="{{asset('backend/app.css')}}">
   <link rel="stylesheet" href="{{asset('assets/admin/css/custom.css')}}">
   <link rel="stylesheet" href="{{asset('assets/admin/css/style.css')}}">
+  <link rel="stylesheet" href="{{ asset('frontend/css/font-awesome.min.css') }}">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
   @yield('css')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">

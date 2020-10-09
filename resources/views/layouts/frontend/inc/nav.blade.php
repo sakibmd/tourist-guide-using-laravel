@@ -20,13 +20,27 @@
          <li class="nav-item">
           <a class="nav-link" href="{{ route('all.package') }}">Packages</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ route('login') }}">Login</a>
-        </li>
+        
+              @guest
+              <li class="nav-item">
+                <a class="nav-link" href="{{ route('login') }}">Login</a>
+              </li>
+                <form class="form-inline my-2 my-lg-0">
+                  <a class="btn btn-info my-2 px-4 py-2" href="{{ route('register') }}" type="submit"><b>Sign Up</b></a>
+                </form>
+                @else
+                    @if (Auth::user()->role_id == 1)
+                        <li class="nav-item">
+                          <a class="nav-link" href="{{ route('admin.dashboard') }}">Dashboard</a>
+                        </li>
+                    @endif
+                    @if (Auth::user()->role_id == 2)
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ route('user.dashboard') }}">Dashboard</a>
+                    </li>                    @endif
+                @endguest
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <a class="btn btn-info my-2 px-4 py-2" href="{{ route('register') }}" type="submit"><b>Sign Up</b></a>
-      </form>
+      
     </div>
   </nav>
   </section>

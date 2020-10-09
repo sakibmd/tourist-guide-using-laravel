@@ -13,4 +13,8 @@ class Package extends Model
     public function user(){
         $this->belongsTo(User::class);
     }
+
+    public function bookings(){
+        return $this->hasMany(Booking::class);
+    }
 }

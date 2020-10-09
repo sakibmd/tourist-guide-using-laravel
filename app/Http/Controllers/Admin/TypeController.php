@@ -106,7 +106,7 @@ class TypeController extends Controller
             session()->flash('danger', 'Place type do not removed, because it has some places');
             return redirect()->back();
         }
-        //$type->delete();
+        $type->delete();
         return redirect(route('admin.type.index'))->with('success', 'Place Type Deleted Successfully');
     }
 }

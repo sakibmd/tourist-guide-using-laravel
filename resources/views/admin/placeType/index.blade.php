@@ -56,13 +56,13 @@
                           @method('DELETE')
                               <div class="modal-content">
                                   <div class="modal-header">
-                                  <h5 class="modal-title" id="exampleModalLabel">District Delete</h5>
+                                  <h5 class="modal-title" id="exampleModalLabel">District Placetype</h5>
                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                       <span aria-hidden="true">&times;</span>
                                   </button>
                                   </div>
                                   <div class="modal-body">
-                                      <div class="text-center">Are you sure to delete this district?</div>
+                                      <div class="text-center">Are you sure to delete this place type?</div>
                                   </div>
                                   <div class="modal-footer">
                                     <button type="button" class="btn btn-success" data-dismiss="modal">No, Go Back</button>

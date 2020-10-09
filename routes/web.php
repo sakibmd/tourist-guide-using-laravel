@@ -23,6 +23,10 @@ Route::get('/package-list', 'HomeController@allPackage')->name('all.package');
 Route::get('/district/{id}', 'HomeController@districtWisePlace')->name('district.wise.place');
 Route::get('/placetype/{id}', 'HomeController@placetypeWisePlace')->name('placetype.wise.place');
 
+Route::get('/package/booking/{id}', 'HomeController@packageBooking')->name('package.booking');
+Route::get('/package/booking', 'HomeController@storeBookingRequest')->name('store.package.booking');
+
+
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
@@ -51,6 +55,11 @@ Route::group([
     Route::resource('users', 'UsersController');
     Route::resource('package', 'PackageController');
     Route::get('list', 'UsersController@adminList')->name('list');
+
+
+    Route::get('booking-request/list', 'BookingController@pendingBookingList')->name('pending.booking');
+    Route::post('booking-request/approve/{id}', 'BookingController@bookingApprove')->name('booking.approve');
+    Route::post('booking-request/remove/{id}', 'BookingController@bookingRemoveByAdmin')->name('booking.remove');
 });
 
 Route::group([ 

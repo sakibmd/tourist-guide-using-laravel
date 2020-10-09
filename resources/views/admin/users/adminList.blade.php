@@ -25,6 +25,7 @@
                           <th>Name</th>
                           <th>Email</th>
                           <th>Contact</th>
+                          <th>Photo</th>
                           <th>Member Since</th>
                           <th width="25%">Action</th>
                         </tr>
@@ -35,6 +36,7 @@
                           <td>{{ $user->name }}</td>
                           <td>{{ $user->email }}</td>
                           <td>{{ $user->contact }}</td>
+                          <td><img height="70" width="70" src="{{  Auth::user()->image != 'default.png' ?  asset('storage/profile_photo/' . Auth::user()->image ) :  asset('assets/admin/img/user2-160x160.jpg')  }}" alt="photo"></td>
                           <td>{{ $user->created_at->diffForHumans() }}</td>
                           <td> 
                                 <button type="submit" class="btn btn-danger" onclick="changeRole({{ $user->id }})">Make as User</button>
