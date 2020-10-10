@@ -160,6 +160,28 @@
 {{-- end district --}}
 
 
+
+{{-- start social media --}}
+<section id="social-media">
+	<div class="container text-center">
+		<p>	Find us on Social Media</p>
+		<div class="social-icon">
+            <a target="_blank" href="https://www.facebook.com/"><img src="{{ asset('frontend/img/facebook.png') }}"></a>
+			<a target="_blank" href="https://twitter.com/"><img src="{{ asset('frontend/img/twitter.png') }}"></a>
+			<a target="_blank" href="https://www.instagram.com/"><img src="{{ asset('frontend/img/instagram.png') }}"></a>
+			<a target="_blank" href="https://www.linkedin.com/"><img src="{{ asset('frontend/img/linkedin.png') }}">
+            </a>
+			
+			
+		</div>
+	</div>
+</section>
+{{-- end social media --}}
+
+
+
+
+
 {{-- start searching --}}
 <div class="container-fluid search-section text-center">
     <div class="row">

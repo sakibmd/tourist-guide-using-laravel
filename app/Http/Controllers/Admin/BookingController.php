@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Booking;
 use App\Guide;
 use App\Http\Controllers\Controller;
+use App\Notifications\PackageApproveConfirmation;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class BookingController extends Controller
@@ -18,6 +20,8 @@ class BookingController extends Controller
         $req = Booking::find($id);
         $req->approved_status = "yes";
         $req->save();
+
+        $req->tourist->notify(new PackageApproveConfirmation($req));
 
         session()->flash('success', 'Booking Request Approved Successfully');
         return redirect()->back();

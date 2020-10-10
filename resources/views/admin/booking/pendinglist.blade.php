@@ -50,10 +50,9 @@
                           <td>{{ $list->tourist->name }}</td>
                           <td>{{ $list->tourist->contact }}</td>
                           <td> 
-                            
-                            <button type="submit" onclick="handleApprove( {{ $list->id }}) " class="btn btn-info">Approve</button>
+                            <button type="submit" onclick="handleApprove( {{ $list->id }}) " class="btn btn-info btn-sm mb-1">Approve</button>
 
-                             <button type="submit" onclick="handleDelete( {{ $list->id }}) " class="btn btn-danger">Remove</button>
+                             <button type="submit" onclick="handleDelete( {{ $list->id }}) " class="btn btn-danger btn-sm">Remove</button>
                           </td>
                         </tr>
                         @endforeach    
@@ -102,8 +101,8 @@
                                         <div class="text-center">Are you sure to approve this booking request?</div>
                                     </div>
                                     <div class="modal-footer">
-                                    <button type="button" class="btn btn-success" data-dismiss="modal">No, Go Back</button>
-                                    <button type="submit" class="btn btn-danger">Yes, Approve</button>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">No, Go Back</button>
+                                    <button type="submit" class="btn btn-success">Yes, Approve</button>
                                     </div>
                                 </div>
                         </form>

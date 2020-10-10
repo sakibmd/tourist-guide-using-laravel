@@ -52,8 +52,7 @@
                           <td>{{ $list->tourist->name }}</td>
                           <td>{{ $list->tourist->contact }}</td>
                           <td> 
-                            
-                             <button type="submit" onclick="cancelRequest( {{ $list->id }}) " class="btn btn-danger">Cancel Request</button>
+                             <button type="submit" onclick="cancelRequest( {{ $list->id }}) " class="btn btn-danger btn-sm">Cancel</button>
                           </td>
                         </tr>
                         @endforeach    

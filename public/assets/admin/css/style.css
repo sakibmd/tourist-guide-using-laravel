@@ -13,17 +13,17 @@
 /*start dashboard box css*/
 
 .main-section{
-width:80%;
+width:90%;
 margin:0 auto;
 text-align: center;
 padding: 0px 5px;
 }
 .dashbord{
-width:32%;
+width:25%;
 display: inline-block;
 background-color:#34495E;
 color:#fff;
-margin: 50px 5px;
+margin: 50px 15px;
 }
 .icon-section i{
 font-size: 30px;

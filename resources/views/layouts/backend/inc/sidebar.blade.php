@@ -72,7 +72,7 @@
               </p>
             </a>
           </li>
-        @if (Auth::user()->email == 'superadmin@gmail.com')
+        @if (Auth::id() == 1)
         <li class="nav-item has-treeview">
           <a href="{{ route('admin.users.index') }}" class="nav-link {{ Request::is('admin/users*') ? 'active' : '' }}">
             <i class="fa fa-users" aria-hidden="true"></i>
@@ -113,7 +113,7 @@
 
         <li class="nav-item has-treeview">
           <a href="{{ route('admin.pending.booking') }}" class="nav-link {{ Request::is('admin/booking-request/list') ? 'active' : '' }}">
-            <i class="far fa-id-badge"></i>
+            <i class="fas fa-chalkboard"></i>
               <p class="ml-2">
                   Pending Request
             </p>
@@ -123,7 +123,7 @@
 
         <li class="nav-item has-treeview">
           <a href="{{ route('admin.package.running') }}" class="nav-link {{ Request::is('admin/running/package*') ? 'active' : '' }}">
-            <i class="far fa-id-badge"></i>
+            <i class="fas fa-box"></i>
               <p class="ml-2">
                   Running Package
             </p>
@@ -133,7 +133,7 @@
 
         <li class="nav-item has-treeview">
           <a href="{{ route('admin.tour.history') }}" class="nav-link {{ Request::is('admin/tour-history/list') ? 'active' : '' }}">
-            <i class="far fa-id-badge"></i>
+            <i class="fas fa-history"></i>
               <p class="ml-2">
                   Tour History
             </p>
@@ -212,7 +212,7 @@
 
             <li class="nav-item has-treeview">
               <a href="{{ route('user.pending.booking') }}" class="nav-link {{ Request::is('user/booking-request/list') ? 'active' : '' }}">
-                <i class="far fa-id-badge"></i>
+                <i class="fas fa-chalkboard"></i>
                   <p class="ml-2">
                       Pending Request
                 </p>
@@ -222,7 +222,7 @@
 
             <li class="nav-item has-treeview">
               <a href="{{ route('user.tour.history') }}" class="nav-link {{ Request::is('user/tour-history/list') ? 'active' : '' }}">
-                <i class="far fa-id-badge"></i>
+                <i class="fas fa-history"></i>
                   <p class="ml-2">
                       Tour History
                 </p>
@@ -231,7 +231,7 @@
 
             <li class="nav-item has-treeview">
               <a href="{{ route('welcome') }}" class="nav-link">
-                <i class="far fa-id-badge"></i>
+                <i class="fas fa-pager"></i>
                   <p class="ml-2">
                       Home Page
                 </p>

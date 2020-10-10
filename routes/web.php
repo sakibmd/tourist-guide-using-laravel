@@ -27,7 +27,7 @@ Route::get('/package/booking/{id}', 'HomeController@packageBooking')->name('pack
 Route::get('/package/booking', 'HomeController@storeBookingRequest')->name('store.package.booking');
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
@@ -38,7 +38,7 @@ Route::group([
     'prefix' => 'admin', 
     'namespace' => 'Admin', 
     'middleware' => [ 
-        'auth', 'admin',
+        'auth', 'admin', 'verified'
     ]
 ], function () {
     Route::get('dashboard','DashboardController@index')->name('dashboard');
@@ -70,7 +70,7 @@ Route::group([
     'prefix' => 'user', 
     'namespace' => 'User', 
     'middleware' => [ 
-    'auth', 'user' 
+    'auth', 'user', 'verified'
     ]
 ], function () {
     Route::get('dashboard','DashboardController@index')->name('dashboard');

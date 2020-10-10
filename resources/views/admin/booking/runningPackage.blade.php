@@ -74,8 +74,8 @@
                                       <div class="text-center">Are you sure to make this tour complete?</div>
                                   </div>
                                   <div class="modal-footer">
-                                  <button type="button" class="btn btn-success" data-dismiss="modal">No, Go Back</button>
-                                  <button type="submit" class="btn btn-danger">Yes, Complete</button>
+                                  <button type="button" class="btn btn-danger" data-dismiss="modal">No, Go Back</button>
+                                  <button type="submit" class="btn btn-success">Yes, Complete</button>
                                   </div>
                               </div>
                       </form>

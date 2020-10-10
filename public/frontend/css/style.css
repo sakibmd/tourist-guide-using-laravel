@@ -132,6 +132,31 @@
 /* end editing view more button */
 
 
+/*social-media section*/
+#social-media{
+	background: #d5d5d5;
+	padding: 100px 0px;
+}
+#social-media p{
+	font-weight: 600;
+	font-size: 35px;
+	margin-bottom: 30px;
+}
+.social-icon img{
+	width: 80px;
+	transition: 1s;
+	padding: 10px;
+}
+.social-icon img:hover{
+	transform: translateY(-10px);
+}
+/*social-media section*/
+
+
+
+
+
+
 
 /* search section */
 

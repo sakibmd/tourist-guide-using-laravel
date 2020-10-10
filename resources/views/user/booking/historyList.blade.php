@@ -61,8 +61,14 @@
                               @if ($list->is_completed == "yes")
                                   Completed
                               @else
+                                @if($list->date > $currentDate)
+                                Waiting
+                                @else 
                                   Running
+                                @endif 
                               @endif
+
+                              
                           </td>
                           
                         </tr>
