@@ -11,7 +11,7 @@
 
                 <div class="card mt-5">
                     <div class="card-header  bg-dark">
-                      <h3 class="card-title float-left p-0 m-0"><strong>All Guides Information ({{ $guides->count() }})</strong></h3>
+                      <h3 class="card-title float-left p-0 m-0"><strong>All Guides Information ({{ $guideCount }})</strong></h3>
                     </div>
                     <!-- card-header -->
                     @if ($guides->count() > 0)

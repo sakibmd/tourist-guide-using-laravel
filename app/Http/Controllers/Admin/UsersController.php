@@ -15,7 +15,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::where('email', '!=', 'superadmin@gmail.com')->paginate(10);
+        $users = User::where('email', '!=', 'superadmin@gmail.com')->paginate(15);
         return view('admin.users.index', compact('users'));
     }
 
@@ -27,7 +27,7 @@ class UsersController extends Controller
      */
     public function adminList()
     {
-        $admins = User::where('email', '!=', 'superadmin@gmail.com')->where('role_id', 1)->paginate(10);
+        $admins = User::where('email', '!=', 'superadmin@gmail.com')->where('role_id', 1)->paginate(15);
         return view('admin.users.adminList', compact('admins'));
     }
 

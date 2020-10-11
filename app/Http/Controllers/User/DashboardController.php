@@ -40,7 +40,8 @@ class DashboardController extends Controller
 
     public function getPlaces(){
         $places = Place::latest()->paginate(8);
-        return view('user.place.index',compact('places'));
+        $placeCount = Place::all()->count();
+        return view('user.place.index',compact('places', 'placeCount'));
     }
 
     public function getPlaceDetails($id){
@@ -51,7 +52,8 @@ class DashboardController extends Controller
 
     public function getGuides(){
         $guides = Guide::latest()->paginate(8);
-        return view('user.guide.index',compact('guides'));
+        $guideCount = Guide::all()->count();
+        return view('user.guide.index',compact('guides', 'guideCount'));
     }
 
     public function getGuideDetails($id){

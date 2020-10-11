@@ -13,7 +13,7 @@
           <img src="{{  Auth::user()->image != 'default.png' ?  asset('storage/profile_photo/' . Auth::user()->image ) :  asset('assets/admin/img/user2-160x160.jpg')  }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block font-weight-bold">{{ Auth::user()->name }}</a>
+          <a href="{{ Auth::user()->role_id == 1 ? route('admin.dashboard') : route('user.dashboard')  }}" class="d-block font-weight-bold">{{ Auth::user()->name }}</a>
         </div>
       </div>
 
@@ -115,7 +115,7 @@
           <a href="{{ route('admin.pending.booking') }}" class="nav-link {{ Request::is('admin/booking-request/list') ? 'active' : '' }}">
             <i class="fas fa-chalkboard"></i>
               <p class="ml-2">
-                  Pending Request
+                  Booking Request
             </p>
           </a>
         </li>

@@ -11,7 +11,7 @@
 
                 <div class="card mt-5">
                     <div class="card-header  bg-dark">
-                      <h3 class="card-title float-left p-0 m-0"><strong>Manage Place ({{ $places->count() }})</strong></h3>
+                      <h3 class="card-title float-left p-0 m-0"><strong>Manage Place ({{ $placecount }})</strong></h3>
                     <a href="{{route('admin.place.create')}}" class="btn btn-success btn-md float-right c-white">Add New <i class="fa fa-plus"></i></a>
                     </div>
                     <!-- card-header -->
@@ -81,7 +81,7 @@
                     @else 
                       <h2 class="text-center text-info font-weight-bold m-3">No Place Found</h2>
                     @endif
-                    <div class="pagination">
+                    <div class="pagination ml-3">
                       {{ $places->links() }}
                     </div>
                     <!-- /.card-body -->

@@ -20,7 +20,8 @@ class GuideController extends Controller
     public function index()
     {
         $guides = Guide::latest()->paginate(8);
-        return view('admin.guide.index',compact('guides'));
+        $guideCount = Guide::all()->count();
+        return view('admin.guide.index',compact('guides', 'guideCount'));
     }
 
     /**

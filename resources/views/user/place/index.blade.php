@@ -11,7 +11,7 @@
 
                 <div class="card mt-5">
                     <div class="card-header  bg-dark">
-                      <h3 class="card-title float-left p-0 m-0"><strong>Places with details ({{ $places->count() }})</strong></h3>
+                      <h3 class="card-title float-left p-0 m-0"><strong>Places with details ({{ $placeCount }})</strong></h3>
                     </div>
                     <!-- card-header -->
                     @if ($places->count() > 0)
@@ -53,7 +53,7 @@
                     @else 
                       <h2 class="text-center text-info font-weight-bold m-3">No Place Found</h2>
                     @endif
-                    <div class="pagination">
+                    <div class="pagination ml-3">
                       {{ $places->links() }}
                     </div>
                     <!-- /.card-body -->

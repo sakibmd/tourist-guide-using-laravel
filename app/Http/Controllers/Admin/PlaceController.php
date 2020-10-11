@@ -22,7 +22,8 @@ class PlaceController extends Controller
     public function index()
     {
         $places = Place::latest()->paginate(8);
-        return view('admin.place.index',compact('places'));
+        $placecount = Place::all()->count();
+        return view('admin.place.index',compact('places', 'placecount'));
     }
 
     /**
