@@ -11,7 +11,7 @@
 
               	@include('partial.successMessage')
 
-                <div class="card mt-5">
+                <div class="card my-5 mx-4">
                     <div class="card-header  bg-dark">
                       <h3 class="card-title float-left p-0 m-0"><strong>Manage Users ({{ $admins->count() }})</strong></h3>
                     </div>

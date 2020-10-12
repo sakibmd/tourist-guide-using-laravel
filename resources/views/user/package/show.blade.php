@@ -55,7 +55,7 @@
                 </tr>
             </table>
             <br>
-            <h3 class="my-5" style="color: whitesmoke; background-color: black; padding:12px;">Description & rules: </h3>
+            <h3 class="my-5 mx-3" style="color: whitesmoke; background-color: black; padding:12px;">Description & rules: </h3>
            <div style="text-align: justify">  {!! $package->description !!}</div>
         </div>
     </div>

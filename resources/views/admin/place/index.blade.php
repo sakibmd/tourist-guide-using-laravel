@@ -9,7 +9,7 @@
 
               	@include('partial.successMessage')
 
-                <div class="card mt-5">
+                <div class="card my-5 mx-4">
                     <div class="card-header  bg-dark">
                       <h3 class="card-title float-left p-0 m-0"><strong>Manage Place ({{ $placecount }})</strong></h3>
                     <a href="{{route('admin.place.create')}}" class="btn btn-success btn-md float-right c-white">Add New <i class="fa fa-plus"></i></a>

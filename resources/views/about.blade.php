@@ -17,7 +17,7 @@
     </div>
     <div class="row">
        @isset($about)
-            <div class="row my-5">
+            <div class="row my-5 text-justify px-4">
                 {!! $about->content !!}
             </div>
        @else

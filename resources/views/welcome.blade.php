@@ -20,12 +20,10 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6">
-				<p class="promo-title">User Interface</p>
-				<p class="text-justify lead"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco  et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco. </p>
+				<p class="promo-title">TRAVEL SPOTLIGHT</p>
+				<p class="text-justify lead"> Bangladesh Tourism Guide is the place to discover the stunning beauty that resides in the tourism spots
+                     of Bangladesh. Our objective is to make it easier for you to enjoy all these amazing places.
+                     If you are the kind of person who loves to travel, then make sure to regularly check our posts so that you don’t miss the best tourism spots. </p>
 				<a href="{{ route('about') }}" class="btn btn-info py-2 px-3"><strong>Details</strong></a>
 			</div>
 			<div class="col-md-6 text-center">
@@ -185,7 +183,7 @@
 {{-- start searching --}}
 <div class="container-fluid search-section text-center">
     <div class="row">
-        <h1 class="m-auto "><strong>You Can Search Our For Our Amazing Places</strong></h1>
+        <h1 class="m-auto "><strong>You Can Search Our Amazing Places</strong></h1>
     </div>
     <div class="row justify-content-center">
         <div class="col-md-9">

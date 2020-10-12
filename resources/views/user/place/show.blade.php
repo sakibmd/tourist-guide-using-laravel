@@ -14,17 +14,23 @@
                         <img  class="img-fluid" src="{{ asset('storage/place/'.$place->image) }}" alt="image">
                     </div>
                     <div class="row">
-                        <h4>Place: <strong>{{ $place->name }}</strong></h4>  <span style="color: grey"> - Added By <span style="color: rgb(60, 43, 158); font-weight: bold">{{ $place->addedBy }}</span> on {{ $place->created_at->diffForHumans() }}</span>
+                        <h4> <span class="text-primary">Place:</span>  <strong>{{ $place->name }}</strong></h4>  <span style="color: grey"> - Added By <span style="color: rgb(60, 43, 158); font-weight: bold">{{ $place->addedBy }}</span> on {{ $place->created_at->diffForHumans() }}</span>
                     </div>
                     <div class="row">
-                        <p>District: <strong>{{ $place->district->name }}</strong></p>
+                        <p><span class="text-primary">District:</span>  <strong>{{ $place->district->name }}</strong></p>
                     </div>
 
                     <div class="row">
-                        <p>Place Type: <strong>{{ $place->placetype->name }}</strong></p>
+                        <p><span class="text-primary">Place Type:</span> <strong>{{ $place->placetype->name }}</strong></p>
                     </div>
+                    <hr>
 
-                    <div class="row mt-3 mb-2">
+                    <div class="row text-primary">
+                        <h4>Description:</h4>
+                    </div>
+                    
+
+                    <div class="row mt-1 mb-2">
                         <p style="text-align: justify">{!! $place->description !!}</p>
                     </div>
 				</div>

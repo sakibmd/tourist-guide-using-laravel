@@ -9,7 +9,7 @@
          
            @include('partial.successMessage')  
 
-            <div class="card mt-5">
+            <div class="card my-5 mx-4">
                 <div class="card-header bg-dark">
                   <h2 class="card-title float-left"><strong>Our All Packages</strong></h2>
                 </div>
