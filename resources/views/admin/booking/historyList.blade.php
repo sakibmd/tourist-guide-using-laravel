@@ -46,8 +46,21 @@
                               @endisset
                               
                           </td>
-                          <td>{{ $list->tourist->name }}</td>
-                          <td>{{ $list->tourist->contact }}</td>
+                           <td>
+                              
+                              @isset( $list->tourist->name )
+                                {{ $list->tourist->name }}
+                              @else 
+                                  His info is deleted by Admin
+                              @endisset
+                          </td>
+                          <td>
+                              @isset( $list->tourist->contact )
+                                {{ $list->tourist->contact }}
+                              @else 
+                                  His info is deleted by Admin
+                              @endisset
+                          </td>
                           
                         </tr>
                         @endforeach    

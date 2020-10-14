@@ -10,10 +10,13 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{  Auth::user()->image != 'default.png' ?  asset('storage/profile_photo/' . Auth::user()->image ) :  asset('assets/admin/img/user2-160x160.jpg')  }}" class="img-circle elevation-2" alt="User Image">
+          <a href="{{ Auth::user()->role_id == 1 ? route('admin.profile.show') : route('user.profile.show') }}">
+            <img src="{{  Auth::user()->image != 'default.png' ?  asset('storage/profile_photo/' . Auth::user()->image ) :  asset('assets/admin/img/user2-160x160.jpg')  }}" class="img-circle elevation-2" alt="User Image">
+          </a>
+          
         </div>
         <div class="info">
-          <a href="{{ Auth::user()->role_id == 1 ? route('admin.dashboard') : route('user.dashboard')  }}" class="d-block font-weight-bold">{{ Auth::user()->name }}</a>
+          <a href="{{ Auth::user()->role_id == 1 ? route('admin.profile.show') : route('user.profile.show') }}" class="d-block font-weight-bold">{{ Auth::user()->name }}</a>
         </div>
       </div>
 
@@ -83,6 +86,8 @@
         </li>
         @endif
 
+
+        @if (Auth::id() == 1)
         <li class="nav-item has-treeview">
           <a href="{{ route('admin.list') }}" class="nav-link {{ Request::is('admin/list') ? 'active' : '' }}">
             <i class="fa fa-list" aria-hidden="true"></i>
@@ -91,6 +96,7 @@
             </p>
           </a>
         </li>
+        @endif
 
 
         <li class="nav-item has-treeview">
