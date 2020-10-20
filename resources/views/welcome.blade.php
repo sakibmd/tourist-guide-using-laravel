@@ -117,6 +117,10 @@
                                             <a href="{{ route('package.booking', $package->id) }}" class="btn btn-success">Book Now</a>
                                         @endif
                                     @endauth
+                                        
+                                    @guest
+                                        <a href="{{ route('login') }}" class="btn btn-success">Book Now</a>
+                                    @endguest
                                 </div>
                             </div>
                         </div>

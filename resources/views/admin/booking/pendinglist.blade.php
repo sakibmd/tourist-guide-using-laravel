@@ -24,7 +24,8 @@
                         <tr>
                           <th>Package</th>
                           <th>Price</th>
-                          <th>Date</th>
+                          <th>Tour Date</th>
+                          <th>Booking Date</th>
                           <th>Guide</th>
                           <th>Tourist Name</th>
                           <th>Tourist Contact</th>
@@ -39,6 +40,7 @@
                           </td>
                           <td>{{ $list->price }}</td>
                           <td>{{ $list->date }}</td>
+                          <td>{{ $list->created_at->format('F d, Y') }}</td>
                           <td>
                               @isset($list->guide->name)
                                  {{ $list->guide->name }}

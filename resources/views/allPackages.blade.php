@@ -31,7 +31,7 @@
                         <div class="card-footer bg-dark" >
                             <div class="d-flex justify-content-between">
                                 <div>
-                                    <a href="{{ route('user.package.show', $package->id) }}" class="btn btn-info">Details</a>
+                                    <a href="{{ route('package.details', $package->id) }}" class="btn btn-info">Details</a>
                                 </div>
                                 <div>
                                     @auth
@@ -39,6 +39,10 @@
                                             <a href="{{ route('package.booking', $package->id) }}" class="btn btn-success">Book Now</a>
                                         @endif
                                     @endauth
+
+                                    @guest
+                                        <a href="{{ route('login') }}" class="btn btn-success">Book Now</a>
+                                    @endguest
                                 </div>
                             </div>
                         </div>
