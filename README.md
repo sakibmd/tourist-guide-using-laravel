@@ -1,78 +1,78 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+## The aim to design and develop this project is to produce a tourist guide for all city of Bangladesh, which can efficiently guide the tourist who visits all city. Due to its natural beauty many domestic and international tourist visits every year. This website helps our tourist a lot. Also, it saves time for the tourist while deciding the location. The website is for tour organizers to handle their activities through the website and for clients to show the tour packages description and book for any given events.
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+## **Technology: Html, CSS, Bootstrap, JavaScript, PHP, Laravel Framework
+## **Database: MySQL
 
-## About Laravel
+<ul>
+<h2>Core Features:</h2> 
+    <li><b>Multiauth role</b></li>
+    <li><b>Login/Register</b></li>
+    <li>Super Admin, Admin, User Panel </li>
+    <li><b>Email Verification</b>, Forget Password, Reset Passwrod</li>
+    <li>Manage places, district, placetype & packages</li>
+    <li><b>Booking System</b> (package booking)</li>
+    <li>Booking history</li>
+    <li>Cancel Booking Request</li>
+    <li>Manage all our tour guides</li>
+    <li>Awesome overview show in <b>Dashboard</b></li>
+    <li>Searching System</li>
+    <li>Category wise data handle</li>
+    <li><b>Notifiaction</b> System (When booking is confirmed by admin then an email notification sends to user</li>
+    <li>Track Tour Status by admin & also specfic user. (Pending, Running, Completed tour)</li>
+    <li>Update profile information</li>
+</ul>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+##  Activities
+<ul>
+<h2>For Super Admin & Admin: (All features are same except all admins are controlled by superadmin)</h2>
+<li>Super admin has the ability to view, create, edit and delete all the districts.</li>
+<li>Super admin has the ability to view, create, edit and delete place type.</li>
+<li>Super admin can manage about section.</li>
+<li>Super admin has the ability to add, edit, delete & view all the places with details.</li>
+<li>Super admin has the ability to add a new guide member.</li>
+<li>Super admin can edit and delete all the guide members.</li>
+<li>Super admin can view all the user information.</li>
+<li>Super admin has the ability to make the user as admin.</li>
+<li>Super admin can view all the admin information.</li>
+<li>Super admin has the ability to make an admin as a user.</li>
+<li>Super admin has the ability to create a new package, view package details, edit & delete them also.</li>
+<li>Super admin can change his profile information.</li>
+<li>Super admin give approval pending booking requests of packages.</li>
+<li>Super admin can view all pending booking lists.</li>
+<li>Super admin can change the status of running packages as complete when the tour is completed.</li>
+<li>Super admin can view all running packages lists.</li>
+<li>Super admin can view all tour history.</li>
+<li>Super admin can sign in/sign out.</li>
+<li>Super admin can reset his/her password.</li>
+</ul>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+<ul>
+<h2>User Panel</h2>
+<li>Users can view all the district's information</li>
+<li>User can view all the place types of information.</li>
+<li>User can see the details of places.</li>
+<li>User can see the guide member information.</li>
+<li>Users can view the details of all the packages.</li>
+<li>Users can book any package by filling up the given form.</li>
+<li>User can view his pending booking request information.</li>
+<li>User can cancel the pending booking request before getting admin/super admin approval.</li>
+<li>User can view email notification of booking package when super admin/admin approves it.</li>
+<li>User can change his profile information.</li>
+<li>User can view his/her own tour history.</li>
+<li>Users can sign in/sign out.</li>
+<li>User can reset his/her password.</li>
+</ul>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<ul>
+<h2>Guest User</h2>
+<li>Guest user can view the about us page.</li>
+<li>Guest users can view details of amazing places.</li>
+<li>Guest users can see details of amazing packages.</li>
+<li>Guest user can see district wise amazing places.</li>
+<li>Guest users can search for amazing places.</li>
+<li>Guest users can view the details of the place type.</li>
+</ul>
