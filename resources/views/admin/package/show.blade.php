@@ -16,7 +16,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row px-5">
             
             <table class="table">
                 <tr>
