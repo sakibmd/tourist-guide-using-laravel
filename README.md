@@ -8,7 +8,7 @@
     <li><b>Multiauth role</b></li>
     <li><b>Login/Register</b></li>
     <li>Super Admin, Admin, User Panel </li>
-    <li><b>Email Verification</b>, Forget Password, Reset Passwrod</li>
+    <li><b>Email Verification</b>, Forget Password, Reset Password</li>
     <li>Manage places, district, placetype & packages</li>
     <li><b>Booking System</b> (package booking)</li>
     <li>Booking history</li>
@@ -17,8 +17,8 @@
     <li>Awesome overview show in <b>Dashboard</b></li>
     <li>Searching System</li>
     <li>Category wise data handle</li>
-    <li><b>Notifiaction</b> System (When booking is confirmed by admin then an email notification sends to user</li>
-    <li>Track Tour Status by admin & also specfic user. (Pending, Running, Completed tour)</li>
+    <li><b>Notification</b> System (When booking is confirmed by admin then an email notification sends to user</li>
+    <li>Track Tour Status by admin & also specific user. (Pending, Running, Completed tour)</li>
     <li>Update profile information</li>
 </ul>
 
